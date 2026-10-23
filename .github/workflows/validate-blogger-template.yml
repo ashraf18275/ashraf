@@ -73,7 +73,7 @@ jobs:
               'data:post.body', 'data:post.title', 'data:post.labels',
               'data:olderPageUrl', 'data:newerPageUrl',
               'data:blog.pageType == "item"',
-              'data:blog.pageType != "item"', 'data:blog.title', 'data:link.target', 'data:link.name',
+              'data:blog.pageType != "item"', 'data:blog.title', 'data:blog.description', 'data:link.target', 'data:link.name',
           ]
           missing_tokens = [token for token in required_tokens if token not in text]
           if missing_tokens:
