@@ -3,12 +3,11 @@
 ## الفحوصات البنيوية المنفذة
 - تحليل XML: ناجح.
 - عنصر Blog widget: واحد، بالمعرّف `Blog1`.
-- أقسام Blogger: 10.
-- معرّفات الأقسام المكررة: لا يوجد.
+- أقسام Blogger: 10، ومعرّفاتها غير مكررة.
 - الأقسام الإعلانية: `ad-top`, `article-ad-before`, `article-top`, `listing-ad-top`, `article-ad-after`, `listing-ad-bottom`, `sidebar-ad`, `ad-bottom`.
-- عناصر المقال والتصنيفات وترقيم الصفحات موجودة في الملف.
-- فحص GitHub Actions: ناجح، التشغيل رقم 3.
-- رابط نتيجة الفحص: https://github.com/ashraf18275/ashraf/actions/runs/40030622584
+- عناصر المقال والتصنيفات وترقيم الصفحات موجودة.
+- اسم المدونة في الترويسة والتذييل ديناميكي ويُقرأ من `data:blog.title` بدل تثبيت اسم الموقع المرجعي.
+- GitHub Actions للتحقق البنيوي نجح بعد إضافة فحص العلامة التجارية الديناميكية: https://github.com/ashraf18275/ashraf/actions/runs/40031112652
 
 ## ما لم يتم اختباره بعد
 - قبول القالب داخل محرر Blogger.
