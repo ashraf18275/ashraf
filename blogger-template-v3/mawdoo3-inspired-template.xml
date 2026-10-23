@@ -141,6 +141,61 @@
     @media(max-width:680px){.article{margin:18px auto}.article-body{font-size:16px}.article-meta{font-size:12px}.ad-area{margin:12px auto}.page-heading{padding-top:18px}}
     @media(max-width:900px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trending-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content-layout{grid-template-columns:minmax(0,1fr) 240px}.hero-box{grid-template-columns:1fr}.hero-symbols{max-width:520px}}
     @media(max-width:680px){.container{width:min(100% - 22px,1180px)}.masthead{padding:14px 0}.masthead-inner{align-items:flex-start;flex-direction:column;gap:13px}.brand{font-size:25px}.brand-mark{width:40px;height:40px}.search{width:100%}.navinner{display:block}.menu-toggle{display:block;width:100%;text-align:right}.mainnav{display:none;flex-direction:column;align-items:stretch;padding-bottom:8px}.mainnav.open{display:flex}.mainnav>a,.navitem>button,.mainnav .widget-content a{width:100%;text-align:right;padding:10px 14px}.mainnav .widget-content ul{display:flex;flex-direction:column;align-items:stretch}.mainnav .widget-content li{width:100%}.navitem{width:100%}.dropdown{position:static;box-shadow:none;border-radius:10px;margin:0 8px 8px;max-height:300px}.navitem:hover .dropdown{display:none}.navitem.expanded .dropdown{display:block}.hero{padding-top:18px}.hero-box{padding:20px;border-radius:16px}.hero-symbols{grid-template-columns:repeat(3,1fr);gap:7px}.symbol{padding:12px 5px}.symbol .ico{font-size:22px}.symbol span:last-child{font-size:11px}.section-head h2{font-size:20px}.category-grid{grid-template-columns:1fr;gap:10px}.trending-grid{grid-template-columns:1fr 1fr;gap:9px}.trend-card{padding:12px;min-height:unset}.trend-card h3{font-size:14px}.content-layout{grid-template-columns:1fr}.sidebar{display:none}.post-card{grid-template-columns:105px minmax(0,1fr);gap:12px}.post-thumb{min-height:95px}.post-card h3{font-size:16px}.post-card p{font-size:13px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
+
+    /* Match the approved green GitHub Pages preview */
+    .topline{display:none!important}
+    .masthead{padding:18px 0;background:#fff}
+    .masthead-inner{justify-content:flex-start;gap:0}
+    .brand{display:flex;flex-direction:row-reverse;align-items:center;gap:8px;color:var(--brand);font-size:29px;white-space:normal}
+    .brand-mark{width:auto;height:auto;background:transparent;color:var(--ink);border-radius:0;font-size:32px;line-height:1}
+    .brand>span:last-child{display:flex;flex-direction:column;gap:3px}
+    .tagline{font-size:13px;color:var(--muted);font-weight:400}
+    .navwrap{background:#fff;color:var(--ink);border-top:1px solid #f0f2f3;border-bottom:1px solid var(--line)}
+    .navinner{min-height:60px;overflow-x:auto}
+    .menu-toggle{color:var(--brand-dark)}
+    .mainnav{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;width:100%}
+    .mainnav .menu-section{flex:0 0 auto;width:auto}
+    .mainnav .widget-content ul{flex-wrap:nowrap;gap:8px}
+    .mainnav .widget-content li{flex:0 0 auto}
+    .mainnav .widget-content a,.mainnav>a,.navitem>button{color:var(--ink);padding:9px 13px;border-radius:10px;font-size:14px}
+    .mainnav .widget-content li:first-child a{background:#eaf8f2;color:var(--brand-dark)}
+    .mainnav .widget-content a:hover,.mainnav>a:hover,.navitem>button:hover{background:#eaf8f2;color:var(--brand-dark)}
+    .hero{padding:24px 0 26px}
+    .hero-box{background:linear-gradient(115deg,#e9f8f1,#f6fbf8);border:1px solid #d9f0e5;border-radius:22px;padding:30px;grid-template-columns:1.4fr .8fr;gap:24px}
+    .hero-art{min-height:160px;border-radius:18px;background:linear-gradient(135deg,#12a878,#087c59);display:flex;align-items:center;justify-content:center;color:#fff;font-size:64px}
+    .hero-art span{font-size:70px;line-height:1}
+    .hero-search{max-width:100%;border-radius:12px;margin:16px 0}
+    .hero-search input{padding:12px 15px}
+    .hero-search button{padding:0 18px}
+    .hero-symbols{display:none!important}
+    .section{padding:22px 0}
+    .section-head h2:before{margin-inline-end:10px}
+    .trending-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media(max-width:800px){
+      .masthead{padding:14px 0}
+      .masthead-inner{justify-content:flex-start}
+      .brand{font-size:25px;gap:6px}
+      .brand-mark{font-size:30px}
+      .navinner{min-height:58px}
+      .menu-toggle{display:none}
+      .mainnav{display:flex;flex-wrap:nowrap}
+      .mainnav .widget-content ul{flex-wrap:nowrap}
+      .hero{padding:24px 0}
+      .hero-box{grid-template-columns:1fr;padding:21px;gap:18px}
+      .hero-art{min-height:100px;font-size:45px;grid-row:2}
+      .hero-art span{font-size:48px}
+      .trending-grid{grid-template-columns:1fr 1fr}
+      .category-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:430px){
+      .container{width:calc(100% - 24px)}
+      .brand{font-size:24px}
+      .hero-box{padding:18px}
+      .hero h1{font-size:25px}
+      .trending-grid{grid-template-columns:1fr}
+      .category-grid{grid-template-columns:1fr}
+    }
   ]]></b:skin>
 </head>
 <body>
@@ -154,7 +209,7 @@
     </div>
   </div></div>
   <header class='masthead'><div class='container masthead-inner'>
-    <a class='brand' expr:href='data:blog.homepageUrl'><span class='brand-mark'>ع</span><span><data:blog.title/> <span class='tagline'><b:if cond='data:blog.description'><data:blog.description/><b:else/>شروحات تقنية وأدوات رقمية</b:if></span></span></a>
+    <a class='brand' expr:href='data:blog.homepageUrl'><span class='brand-mark'>+</span><span><data:blog.title/> <span class='tagline'><b:if cond='data:blog.description'><data:blog.description/><b:else/>شروحات تقنية وأدوات رقمية</b:if></span></span></a>
     
   </div></header>
   <div class='navwrap'><div class='container navinner'>
@@ -191,7 +246,7 @@
           <b:includable id='main'><div class='widget-content'><data:content/></div></b:includable>
         </b:widget>
       </b:section>
-      <div class='hero-symbols'><a class='symbol' href='/search/label/الذكاء الاصطناعي'><span class='ico'>🤖</span><span>الذكاء الاصطناعي</span></a><a class='symbol' href='/search/label/الأجهزة والهواتف'><span class='ico'>📱</span><span>الأجهزة والهواتف</span></a><a class='symbol' href='/search/label/التطبيقات والبرامج'><span class='ico'>🧩</span><span>التطبيقات والبرامج</span></a><a class='symbol' href='/search/label/البرمجة وتطوير الويب'><span class='ico'>💻</span><span>البرمجة والويب</span></a><a class='symbol' href='/search/label/الأمن السيبراني'><span class='ico'>🔐</span><span>الأمن السيبراني</span></a><a class='symbol' href='/search/label/الأدوات الرقمية'><span class='ico'>🛠️</span><span>الأدوات الرقمية</span></a></div>
+      <div class='hero-art' aria-hidden='true'><span>✦</span></div>
     </div></div></section>
     <b:section id='trending-content' class='editable-home-section' maxwidgets='1' showaddelement='no'>
       <b:widget id='HTML2' locked='false' title='الموضوعات المتداولة' type='HTML' version='2' visible='true'>
