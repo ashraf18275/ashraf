@@ -52,6 +52,20 @@ jobs:
           if len(blog_widgets) != 1 or blog_widgets[0].attrib.get("id") != "Blog1":
               raise SystemExit("FAIL: expected exactly one Blog1 widget")
 
+          theme_variables = re.findall(r'<Variable name="([^"]+)"', text)
+          expected_variables = {
+              "brand.color", "brand.dark", "text.color", "muted.color",
+              "border.color", "surface.color", "page.color", "nav.color",
+              "footer.color", "hero.color", "content.width", "card.radius",
+              "body.font",
+          }
+          missing_variables = sorted(expected_variables - set(theme_variables))
+          if missing_variables:
+              raise SystemExit(f"FAIL: theme customization variables missing: {missing_variables}")
+          duplicate_variables = sorted({value for value in theme_variables if theme_variables.count(value) > 1})
+          if duplicate_variables:
+              raise SystemExit(f"FAIL: duplicate theme variable names: {duplicate_variables}")
+
           required_tokens = [
               'data:post.body', 'data:post.title', 'data:post.labels',
               'data:olderPageUrl', 'data:newerPageUrl',
@@ -76,5 +90,6 @@ jobs:
           print(f"PASS: XML parsed ({len(text)} characters)")
           print(f"PASS: {len(sections)} Blogger sections; IDs are unique")
           print("PASS: one Blog1 widget and required article/listing/pagination structures found")
+          print(f"PASS: {len(theme_variables)} theme customization variables found with unique names")
           print("NOTE: these checks do not replace installation and visual testing inside Blogger.")
           PY
