@@ -92,7 +92,8 @@ jobs:
 
           print(f"PASS: XML parsed ({len(text)} characters)")
           print(f"PASS: {len(sections)} Blogger sections; IDs are unique")
-          print("PASS: Blog1 article widget and editable LinkList1 navigation widget found")\n          print("PASS: required article/listing/pagination structures found")
+          print("PASS: Blog1 article widget and editable LinkList1 navigation widget found")
+          print("PASS: required article/listing/pagination structures found")
           print(f"PASS: {len(theme_variables)} theme customization variables found with unique names")
           print("NOTE: these checks do not replace installation and visual testing inside Blogger.")
           PY
