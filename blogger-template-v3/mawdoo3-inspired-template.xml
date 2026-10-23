@@ -150,7 +150,7 @@
     </div>
   </div></div>
   <header class='masthead'><div class='container masthead-inner'>
-    <a class='brand' expr:href='data:blog.homepageUrl'><span class='brand-mark'>ع</span><span><data:blog.title/> <span class='tagline'>معرفة تثري حياتك</span></span></a>
+    <a class='brand' expr:href='data:blog.homepageUrl'><span class='brand-mark'>ع</span><span><data:blog.title/> <span class='tagline'><b:if cond='data:blog.description'><data:blog.description/><b:else/>معرفة تثري حياتك</b:if></span></span></a>
     <form action='/search' class='search' method='get' role='search'><input name='q' placeholder='ابحث هنا...' type='search'/><button type='submit'>بحث</button></form>
   </div></header>
   <div class='navwrap'><div class='container navinner'>
@@ -292,7 +292,7 @@
     </div>
   </main>
   <div class='container ad-area' data-ad-label='مساحة إعلانية أسفل الصفحة' aria-label='مساحة إعلانية أسفل الصفحة'><b:section id='ad-bottom' maxwidgets='1' showaddelement='yes'/></div>
-  <footer class='footer'><div class='container'><div class='footer-grid'><div id='about'><h3><data:blog.title/></h3><p>قالب مدونة عربي قابل للتخصيص، مستوحى من أسلوب بوابات المعرفة العربية. أضف وصف موقعك من إعدادات بلوجر.</p></div><div><h3>تصفح</h3><a href='/'>الرئيسية</a><a href='#categories'>التصنيفات</a><a href='/search'>البحث</a></div><div id='contact'><h3>روابط الموقع</h3><a href='/p/about.html'>من نحن</a><a href='/p/contact.html'>اتصل بنا</a><a href='/p/privacy.html'>سياسة الخصوصية</a></div></div><div class='copyright'>© <data:blog.title/> — جميع الحقوق محفوظة</div></div></footer>
+  <footer class='footer'><div class='container'><div class='footer-grid'><div id='about'><h3><data:blog.title/></h3><p><b:if cond='data:blog.description'><data:blog.description/><b:else/>مدونة عربية تقدم محتوى مفيدًا في مجالات متنوعة.</b:if></p></div><div><h3>تصفح</h3><a href='/'>الرئيسية</a><a href='#categories'>التصنيفات</a><a href='/search'>البحث</a></div><div id='contact'><h3>روابط الموقع</h3><a href='/p/about.html'>من نحن</a><a href='/p/contact.html'>اتصل بنا</a><a href='/p/privacy.html'>سياسة الخصوصية</a></div></div><div class='copyright'>© <data:blog.title/> — جميع الحقوق محفوظة</div></div></footer>
   <script type='text/javascript'>
   //<![CDATA[
   (function(){var nav=document.getElementById('mainnav');document.addEventListener('click',function(e){if(!e.target.closest('.navitem')&&!e.target.closest('.menu-toggle')){var items=document.querySelectorAll('.navitem.expanded');items.forEach(function(x){x.classList.remove('expanded');});}});})();
