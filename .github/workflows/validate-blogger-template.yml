@@ -96,15 +96,21 @@ jobs:
               raise SystemExit(f"FAIL: hard-coded reference-site branding remains: {remaining_branding}")
 
           required_technology_labels = [
-              "الذكاء الاصطناعي", "الأجهزة والهواتف", "التطبيقات والبرامج",
-              "البرمجة وتطوير الويب", "الأمن السيبراني", "الأدوات الرقمية",
-              "تحويل الملفات", "الربح من الإنترنت",
+              "شروحات البرامج والتطبيقات", "المشكلات والحلول",
+              "الأدوات الرقمية وتحويل الملفات", "الأمان والخصوصية الرقمية",
+              "المقارنات والترشيحات التقنية", "البرمجة وتطوير المواقع",
+              "الإنتاجية والعمل الرقمي", "الذكاء الاصطناعي",
+              "الأجهزة والهواتف", "الإنترنت والخدمات الرقمية",
           ]
           missing_technology_labels = [label for label in required_technology_labels if label not in text]
           if missing_technology_labels:
               raise SystemExit(f"FAIL: expected technology-focused sections missing: {missing_technology_labels}")
 
-          forbidden_off_topic = ["فن الطهي", "أكلات خفيفة", "وصفات وأفكار سهلة للمطبخ", "حيوانات ونباتات", "تنظيم المنزل"]
+          forbidden_off_topic = [
+              "فن الطهي", "أكلات خفيفة", "وصفات وأفكار سهلة للمطبخ",
+              "حيوانات ونباتات", "تنظيم المنزل", "حول العالم", "التغذية",
+              "العناية بالذات", "إسلام", "الحمل والولادة", "وزن ورشاقة",
+          ]
           remaining_off_topic = [term for term in forbidden_off_topic if term in text]
           if remaining_off_topic:
               raise SystemExit(f"FAIL: off-topic homepage categories remain: {remaining_off_topic}")
