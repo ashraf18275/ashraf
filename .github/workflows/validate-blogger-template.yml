@@ -56,11 +56,22 @@ jobs:
               'data:post.body', 'data:post.title', 'data:post.labels',
               'data:olderPageUrl', 'data:newerPageUrl',
               'data:blog.pageType == "item"',
-              'data:blog.pageType != "item"',
+              'data:blog.pageType != "item"', 'data:blog.title',
           ]
           missing_tokens = [token for token in required_tokens if token not in text]
           if missing_tokens:
               raise SystemExit(f"FAIL: required template expressions missing: {missing_tokens}")
+
+
+          forbidden_branding = [
+              "<span class='brand-mark'>م</span><span>موضوع ",
+              "<div class='eyebrow'>أهلاً بك في موضوع</div>",
+              "<h2>تصنيفات موضوع</h2>",
+              "<div id='about'><h3>موضوع</h3>",
+          ]
+          remaining_branding = [value for value in forbidden_branding if value in text]
+          if remaining_branding:
+              raise SystemExit(f"FAIL: hard-coded reference-site branding remains: {remaining_branding}")
 
           print(f"PASS: XML parsed ({len(text)} characters)")
           print(f"PASS: {len(sections)} Blogger sections; IDs are unique")
