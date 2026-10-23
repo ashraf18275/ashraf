@@ -41,7 +41,7 @@ jobs:
           required_sections = {
               "ad-top", "article-ad-before", "article-top", "listing-ad-top",
               "article-ad-after", "listing-ad-bottom", "sidebar-ad", "ad-bottom",
-              "main-posts", "main-menu", "hero-content",
+              "main-posts", "main-menu", "hero-content", "trending-content", "category-content",
           }
           missing = sorted(required_sections - set(ids))
           if missing:
@@ -55,8 +55,10 @@ jobs:
           if len(link_widgets) != 1 or link_widgets[0].attrib.get("id") != "LinkList1":
               raise SystemExit("FAIL: expected one editable LinkList1 navigation widget")
           html_widgets = [w for w in widgets if w.attrib.get("type") == "HTML"]
-          if len(html_widgets) != 1 or html_widgets[0].attrib.get("id") != "HTML1":
-              raise SystemExit("FAIL: expected one editable HTML1 homepage hero widget")
+          html_widget_ids = {w.attrib.get("id") for w in html_widgets}
+          expected_html_widgets = {"HTML1", "HTML2", "HTML3"}
+          if html_widget_ids != expected_html_widgets:
+              raise SystemExit(f"FAIL: expected editable homepage HTML widgets {sorted(expected_html_widgets)}, found {sorted(html_widget_ids)}")
 
           theme_variables = re.findall(r'<Variable name="([^"]+)"', text)
           expected_variables = {
@@ -95,7 +97,7 @@ jobs:
 
           print(f"PASS: XML parsed ({len(text)} characters)")
           print(f"PASS: {len(sections)} Blogger sections; IDs are unique")
-          print("PASS: Blog1 article widget, editable LinkList1 navigation widget and HTML1 hero widget found")
+          print("PASS: Blog1 article widget, editable LinkList1 navigation widget and three editable homepage HTML widgets found")
           print("PASS: required article/listing/pagination structures found")
           print(f"PASS: {len(theme_variables)} theme customization variables found with unique names")
           print("NOTE: these checks do not replace installation and visual testing inside Blogger.")
