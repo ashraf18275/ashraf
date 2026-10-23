@@ -163,15 +163,16 @@
       <b:section id='main-menu' class='menu-section' maxwidgets='1' showaddelement='no'>
         <b:widget id='LinkList1' locked='false' title='القائمة الرئيسية' type='LinkList' version='2' visible='true'>
           <b:widget-settings>
-            <b:widget-setting name='sorting'>NONE</b:widget-setting>
-            <b:widget-setting name='text-0'>الرئيسية</b:widget-setting><b:widget-setting name='link-0'>/</b:widget-setting>
-            <b:widget-setting name='text-1'>الذكاء الاصطناعي</b:widget-setting><b:widget-setting name='link-1'>/search/label/الذكاء الاصطناعي</b:widget-setting>
-            <b:widget-setting name='text-2'>الأجهزة والهواتف</b:widget-setting><b:widget-setting name='link-2'>/search/label/الأجهزة والهواتف</b:widget-setting>
-            <b:widget-setting name='text-3'>التطبيقات والبرامج</b:widget-setting><b:widget-setting name='link-3'>/search/label/التطبيقات والبرامج</b:widget-setting>
-            <b:widget-setting name='text-4'>البرمجة وتطوير الويب</b:widget-setting><b:widget-setting name='link-4'>/search/label/البرمجة وتطوير الويب</b:widget-setting>
-            <b:widget-setting name='text-5'>الأمن السيبراني</b:widget-setting><b:widget-setting name='link-5'>/search/label/الأمن السيبراني</b:widget-setting>
-            <b:widget-setting name='text-6'>الأدوات الرقمية</b:widget-setting><b:widget-setting name='link-6'>/search/label/الأدوات الرقمية</b:widget-setting>
-          </b:widget-settings>
+<b:widget-setting name='sorting'>NONE</b:widget-setting>
+<b:widget-setting name='text-0'>الرئيسية</b:widget-setting><b:widget-setting name='link-0'>/</b:widget-setting>
+<b:widget-setting name='text-1'>المشكلات والحلول</b:widget-setting><b:widget-setting name='link-1'>/search/label/المشكلات والحلول</b:widget-setting>
+<b:widget-setting name='text-2'>شروحات البرامج</b:widget-setting><b:widget-setting name='link-2'>/search/label/شروحات البرامج والتطبيقات</b:widget-setting>
+<b:widget-setting name='text-3'>الأدوات الرقمية</b:widget-setting><b:widget-setting name='link-3'>/search/label/الأدوات الرقمية وتحويل الملفات</b:widget-setting>
+<b:widget-setting name='text-4'>الأمان والخصوصية</b:widget-setting><b:widget-setting name='link-4'>/search/label/الأمان والخصوصية الرقمية</b:widget-setting>
+<b:widget-setting name='text-5'>المقارنات التقنية</b:widget-setting><b:widget-setting name='link-5'>/search/label/المقارنات والترشيحات التقنية</b:widget-setting>
+<b:widget-setting name='text-6'>البرمجة وتطوير المواقع</b:widget-setting><b:widget-setting name='link-6'>/search/label/البرمجة وتطوير المواقع</b:widget-setting>
+<b:widget-setting name='text-7'>الإنتاجية والعمل الرقمي</b:widget-setting><b:widget-setting name='link-7'>/search/label/الإنتاجية والعمل الرقمي</b:widget-setting>
+</b:widget-settings>
           <b:includable id='main'>
             <div class='widget-content'><ul><b:loop values='data:links' var='link'><li><a expr:href='data:link.target'><data:link.name/></a></li></b:loop></ul></div>
           </b:includable>
@@ -194,12 +195,12 @@
     </div></div></section>
     <b:section id='trending-content' class='editable-home-section' maxwidgets='1' showaddelement='no'>
       <b:widget id='HTML2' locked='false' title='الموضوعات المتداولة' type='HTML' version='2' visible='true'>
-        <b:widget-settings><b:widget-setting name='content'><![CDATA[<section class='section'><div class='container'><div class='section-head'><h2>أبرز مجالات التقنية</h2><span class='muted'>موضوعات تقنية مختارة</span></div><div class='trending-grid'>
-      <a class='trend-card' href='/search/label/الذكاء الاصطناعي'><span class='category'>الذكاء الاصطناعي</span><h3>أدوات الذكاء الاصطناعي واستخداماتها العملية</h3><span class='muted'>اكتشف المزيد ←</span></a>
-      <a class='trend-card' href='/search/label/الأجهزة والهواتف'><span class='category'>الأجهزة والهواتف</span><h3>مراجعات وإرشادات للأجهزة والهواتف</h3><span class='muted'>اكتشف المزيد ←</span></a>
-      <a class='trend-card' href='/search/label/التطبيقات والبرامج'><span class='category'>التطبيقات والبرامج</span><h3>تطبيقات مفيدة وشروحات البرامج</h3><span class='muted'>اكتشف المزيد ←</span></a>
-      <a class='trend-card' href='/search/label/الأدوات الرقمية'><span class='category'>الأدوات الرقمية</span><h3>أدوات لتحويل الملفات وإنجاز المهام</h3><span class='muted'>اكتشف المزيد ←</span></a>
-    </div></div></section>]]></b:widget-setting></b:widget-settings>
+        <b:widget-settings><b:widget-setting name='content'><![CDATA[<section class='section'><div class='container'><div class='section-head'><h2>ابدأ من هنا</h2><span class='muted'>أهم خدمات ومحتويات البوابة</span></div><div class='trending-grid'>
+<a class='trend-card' href='/search/label/المشكلات والحلول'><span class='category'>المشكلات والحلول</span><h3>حلول عملية لأخطاء الأجهزة والبرامج والإنترنت</h3><span class='muted'>اكتشف المزيد ←</span></a>
+<a class='trend-card' href='/search/label/شروحات البرامج والتطبيقات'><span class='category'>شروحات البرامج والتطبيقات</span><h3>تعلم استخدام البرامج والتطبيقات خطوة بخطوة</h3><span class='muted'>اكتشف المزيد ←</span></a>
+<a class='trend-card' href='/search/label/الأدوات الرقمية وتحويل الملفات'><span class='category'>الأدوات الرقمية وتحويل الملفات</span><h3>أدوات مفيدة لتحويل الملفات وإنجاز المهام</h3><span class='muted'>اكتشف المزيد ←</span></a>
+<a class='trend-card' href='/search/label/الأمان والخصوصية الرقمية'><span class='category'>الأمان والخصوصية الرقمية</span><h3>إرشادات لحماية الحسابات والبيانات</h3><span class='muted'>اكتشف المزيد ←</span></a>
+</div></div></section>]]></b:widget-setting></b:widget-settings>
         <b:includable id='main'><div class='widget-content'><data:content/></div></b:includable>
       </b:widget>
     </b:section>
