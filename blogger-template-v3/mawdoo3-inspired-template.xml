@@ -8,13 +8,26 @@
   <title><data:blog.pageTitle/></title>
   <b:include data='blog' name='all-head-content'/>
   <b:skin><![CDATA[
-    :root{--brand:#12a878;--brand-dark:#087c59;--ink:#202b36;--muted:#667085;--line:#e7ecef;--soft:#f5f8f7;--white:#fff;--radius:16px}
+    <Variable name="brand.color" description="اللون الرئيسي" type="color" default="#12a878"/>
+    <Variable name="brand.dark" description="اللون الرئيسي الداكن" type="color" default="#087c59"/>
+    <Variable name="text.color" description="لون النص" type="color" default="#202b36"/>
+    <Variable name="muted.color" description="لون النص الثانوي" type="color" default="#667085"/>
+    <Variable name="border.color" description="لون الحدود" type="color" default="#e7ecef"/>
+    <Variable name="surface.color" description="لون خلفية البطاقات" type="color" default="#f5f8f7"/>
+    <Variable name="page.color" description="خلفية الصفحة" type="color" default="#ffffff"/>
+    <Variable name="nav.color" description="خلفية قائمة التنقل" type="color" default="#12a878"/>
+    <Variable name="footer.color" description="خلفية التذييل" type="color" default="#172b25"/>
+    <Variable name="hero.color" description="خلفية منطقة الترحيب" type="color" default="#eefaf5"/>
+    <Variable name="content.width" description="عرض المحتوى" type="length" default="1180px" min="960px" max="1440px"/>
+    <Variable name="card.radius" description="استدارة البطاقات" type="length" default="16px" min="0px" max="32px"/>
+    <Variable name="body.font" description="خط النص الأساسي" type="font" default="normal normal 16px Tahoma, Arial, sans-serif"/>
+    :root{--brand:$(brand.color);--brand-dark:$(brand.dark);--ink:$(text.color);--muted:$(muted.color);--line:$(border.color);--soft:$(surface.color);--white:$(page.color);--page-bg:$(page.color);--nav-bg:$(nav.color);--footer-bg:$(footer.color);--hero-bg:$(hero.color);--content-width:$(content.width);--radius:$(card.radius);--body-font:$(body.font)}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{margin:0;background:#fff;color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+    body{margin:0;background:var(--page-bg);color:var(--ink);font:var(--body-font);line-height:1.8}
     a{color:inherit;text-decoration:none}
     a:hover{color:var(--brand-dark)}
-    .container{width:min(1180px,calc(100% - 32px));margin-inline:auto}
+    .container{width:min(var(--content-width),calc(100% - 32px));margin-inline:auto}
     .topline{background:#f7faf9;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
     .topline .container{display:flex;gap:20px;align-items:center;min-height:38px;flex-wrap:wrap}
     .toplinks{display:flex;gap:18px;flex-wrap:wrap}
@@ -26,7 +39,7 @@
     .search{display:flex;width:min(440px,100%);border:1px solid #dce5e1;border-radius:12px;overflow:hidden;background:#fff}
     .search input{border:0;outline:0;min-width:0;flex:1;padding:12px 15px;font:inherit}
     .search button{border:0;background:var(--brand);color:#fff;padding:0 20px;font:inherit;cursor:pointer}
-    .navwrap{background:var(--brand);color:#fff;position:relative;z-index:10}
+    .navwrap{background:var(--nav-bg);color:#fff;position:relative;z-index:10}
     .navinner{display:flex;align-items:center;gap:0;min-height:54px}
     .menu-toggle{display:none;background:transparent;border:0;color:white;font-size:25px;padding:8px 12px}
     .mainnav{display:flex;align-items:center;gap:0;flex-wrap:wrap}
@@ -38,7 +51,7 @@
     .dropdown a{display:block;padding:8px 12px;border-radius:8px;font-size:14px}
     .dropdown a:hover{background:var(--soft)}
     .hero{padding:32px 0 20px}
-    .hero-box{background:linear-gradient(120deg,#eefaf5,#f8fbfa);border:1px solid #e1f1e9;border-radius:22px;padding:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:25px;align-items:center}
+    .hero-box{background:linear-gradient(120deg,var(--hero-bg),var(--page-bg));border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:25px;align-items:center}
     .eyebrow{color:var(--brand-dark);font-size:13px;font-weight:700}
     h1{font-size:clamp(27px,4vw,42px);line-height:1.35;margin:8px 0 10px}
     .hero p{color:var(--muted);margin:0 0 18px}
@@ -54,11 +67,11 @@
     .section-head h2:before{content:"";display:inline-block;width:5px;height:24px;background:var(--brand);border-radius:4px;margin-inline-end:10px;vertical-align:middle}
     .muted{color:var(--muted)}
     .trending-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-    .trend-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;min-height:130px}
+    .trend-card{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:var(--page-bg);min-height:130px}
     .trend-card .category{color:var(--brand-dark);font-size:12px;font-weight:700}
     .trend-card h3{font-size:16px;line-height:1.6;margin:8px 0}
     .category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-    .category-card{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:white}
+    .category-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--page-bg)}
     .category-title{display:flex;align-items:center;gap:10px;padding:15px;background:var(--soft);border-bottom:1px solid var(--line);font-weight:800}
     .category-title .ico{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:#e1f6ec;font-size:20px}
     .subcategory-list{padding:10px 14px 14px;display:flex;flex-wrap:wrap;gap:7px}
@@ -71,7 +84,7 @@
     .post-thumb img{width:100%;height:100%;object-fit:cover}
     .post-card h3{font-size:19px;line-height:1.55;margin:2px 0 7px;overflow-wrap:anywhere}
     .post-card p{margin:0;color:var(--muted);font-size:14px}
-    .sidebar-box{border:1px solid var(--line);border-radius:15px;padding:17px;margin-bottom:16px}
+    .sidebar-box{border:1px solid var(--line);border-radius:var(--radius);padding:17px;margin-bottom:16px}
     .sidebar-box h3{font-size:17px;margin:0 0 10px}
     .sidebar-box a{display:block;padding:7px 0;border-bottom:1px solid #f0f2f1;font-size:14px}
     .article{max-width:850px;margin:30px auto}
@@ -83,7 +96,7 @@
     .article-body img{max-width:100%;height:auto;border-radius:12px}
     .blog-pager{display:flex;justify-content:space-between;gap:12px;padding:24px 0}
     .blog-pager a{background:var(--soft);border-radius:10px;padding:9px 15px}
-    .footer{margin-top:40px;background:#172b25;color:#e7f2ed;padding:35px 0 18px}
+    .footer{margin-top:40px;background:var(--footer-bg);color:#e7f2ed;padding:35px 0 18px}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
     .footer h3{color:#fff;margin-top:0}
     .footer a{display:block;color:#d0e1d9;padding:3px 0;font-size:14px}
