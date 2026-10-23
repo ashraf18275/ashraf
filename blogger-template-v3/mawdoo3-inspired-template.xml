@@ -289,7 +289,7 @@
       </section>
       <aside class='sidebar'>
         <div class='sidebar-box'><h3>تصفح الأقسام</h3>
-          <a href='/search/label/صحة'>❤️ الصحة</a><a href='/search/label/تعليم'>📚 التعليم</a><a href='/search/label/تقنية'>💻 التقنية</a><a href='/search/label/فن الطهي'>🍲 فن الطهي</a><a href='/search/label/حول العالم'>🌍 حول العالم</a><a href='/search/label/تغذية'>🥗 التغذية</a>
+          <a href='/search/label/الذكاء الاصطناعي'>🤖 الذكاء الاصطناعي</a><a href='/search/label/الأجهزة والهواتف'>📱 الأجهزة والهواتف</a><a href='/search/label/التطبيقات والبرامج'>🧩 التطبيقات والبرامج</a><a href='/search/label/البرمجة وتطوير الويب'>💻 البرمجة وتطوير الويب</a><a href='/search/label/الأمن السيبراني'>🔐 الأمن السيبراني</a><a href='/search/label/الأدوات الرقمية'>🛠️ الأدوات الرقمية</a>
         </div>
         <div class='ad-area' data-ad-label='مساحة إعلانية جانبية' aria-label='مساحة إعلانية جانبية'><b:section id='sidebar-ad' maxwidgets='1' showaddelement='yes'/></div>
         <b:section id='sidebar-widgets' showaddelement='yes'/>
