@@ -41,7 +41,7 @@ jobs:
           required_sections = {
               "ad-top", "article-ad-before", "article-top", "listing-ad-top",
               "article-ad-after", "listing-ad-bottom", "sidebar-ad", "ad-bottom",
-              "main-posts",
+              "main-posts", "main-menu",
           }
           missing = sorted(required_sections - set(ids))
           if missing:
@@ -51,6 +51,9 @@ jobs:
           blog_widgets = [w for w in widgets if w.attrib.get("type") == "Blog"]
           if len(blog_widgets) != 1 or blog_widgets[0].attrib.get("id") != "Blog1":
               raise SystemExit("FAIL: expected exactly one Blog1 widget")
+          link_widgets = [w for w in widgets if w.attrib.get("type") == "LinkList"]
+          if len(link_widgets) != 1 or link_widgets[0].attrib.get("id") != "LinkList1":
+              raise SystemExit("FAIL: expected one editable LinkList1 navigation widget")
 
           theme_variables = re.findall(r'<Variable name="([^"]+)"', text)
           expected_variables = {
@@ -70,7 +73,7 @@ jobs:
               'data:post.body', 'data:post.title', 'data:post.labels',
               'data:olderPageUrl', 'data:newerPageUrl',
               'data:blog.pageType == "item"',
-              'data:blog.pageType != "item"', 'data:blog.title',
+              'data:blog.pageType != "item"', 'data:blog.title', 'data:link.target', 'data:link.name',
           ]
           missing_tokens = [token for token in required_tokens if token not in text]
           if missing_tokens:
@@ -89,7 +92,7 @@ jobs:
 
           print(f"PASS: XML parsed ({len(text)} characters)")
           print(f"PASS: {len(sections)} Blogger sections; IDs are unique")
-          print("PASS: one Blog1 widget and required article/listing/pagination structures found")
+          print("PASS: Blog1 article widget and editable LinkList1 navigation widget found")\n          print("PASS: required article/listing/pagination structures found")
           print(f"PASS: {len(theme_variables)} theme customization variables found with unique names")
           print("NOTE: these checks do not replace installation and visual testing inside Blogger.")
           PY
