@@ -1,0 +1,124 @@
+name: Validate Blogger template
+
+on:
+  push:
+    branches:
+      - blogger-template-v3-development
+    paths:
+      - 'blogger-template-v3/**'
+      - '.github/workflows/validate-blogger-template.yml'
+  pull_request:
+    paths:
+      - 'blogger-template-v3/**'
+      - '.github/workflows/validate-blogger-template.yml'
+
+jobs:
+  validate-xml:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Parse XML and check required Blogger structures
+        run: |
+          python - <<'PY'
+          import re
+          import xml.etree.ElementTree as ET
+          from pathlib import Path
+
+          path = Path("blogger-template-v3/mawdoo3-inspired-template.xml")
+          text = path.read_text(encoding="utf-8")
+          root = ET.fromstring(text)
+
+          ns = {"b": "http://www.google.com/2005/gml/b"}
+          sections = root.findall(".//b:section", ns)
+          ids = [section.attrib.get("id") for section in sections]
+          if None in ids:
+              raise SystemExit("FAIL: a Blogger section has no id")
+          duplicates = sorted({value for value in ids if ids.count(value) > 1})
+          if duplicates:
+              raise SystemExit(f"FAIL: duplicate section ids: {duplicates}")
+
+          required_sections = {
+              "ad-top", "article-ad-before", "article-top", "listing-ad-top",
+              "article-ad-after", "listing-ad-bottom", "sidebar-ad", "ad-bottom",
+              "main-posts", "main-menu", "hero-content", "trending-content", "category-content",
+          }
+          missing = sorted(required_sections - set(ids))
+          if missing:
+              raise SystemExit(f"FAIL: required sections missing: {missing}")
+
+          widgets = root.findall(".//b:widget", ns)
+          blog_widgets = [w for w in widgets if w.attrib.get("type") == "Blog"]
+          if len(blog_widgets) != 1 or blog_widgets[0].attrib.get("id") != "Blog1":
+              raise SystemExit("FAIL: expected exactly one Blog1 widget")
+          link_widgets = [w for w in widgets if w.attrib.get("type") == "LinkList"]
+          if len(link_widgets) != 1 or link_widgets[0].attrib.get("id") != "LinkList1":
+              raise SystemExit("FAIL: expected one editable LinkList1 navigation widget")
+          html_widgets = [w for w in widgets if w.attrib.get("type") == "HTML"]
+          html_widget_ids = {w.attrib.get("id") for w in html_widgets}
+          expected_html_widgets = {"HTML1", "HTML2", "HTML3"}
+          if html_widget_ids != expected_html_widgets:
+              raise SystemExit(f"FAIL: expected editable homepage HTML widgets {sorted(expected_html_widgets)}, found {sorted(html_widget_ids)}")
+
+          theme_variables = re.findall(r'<Variable name="([^"]+)"', text)
+          expected_variables = {
+              "brand.color", "brand.dark", "text.color", "muted.color",
+              "border.color", "surface.color", "page.color", "nav.color",
+              "footer.color", "hero.color", "content.width", "card.radius",
+              "body.font",
+          }
+          missing_variables = sorted(expected_variables - set(theme_variables))
+          if missing_variables:
+              raise SystemExit(f"FAIL: theme customization variables missing: {missing_variables}")
+          duplicate_variables = sorted({value for value in theme_variables if theme_variables.count(value) > 1})
+          if duplicate_variables:
+              raise SystemExit(f"FAIL: duplicate theme variable names: {duplicate_variables}")
+
+          required_tokens = [
+              'data:post.body', 'data:post.title', 'data:post.labels',
+              'data:olderPageUrl', 'data:newerPageUrl',
+              'data:blog.pageType == "item"',
+              'data:blog.pageType != "item"', 'data:blog.title', 'data:blog.description', 'data:link.target', 'data:link.name', 'data:content',
+          ]
+          missing_tokens = [token for token in required_tokens if token not in text]
+          if missing_tokens:
+              raise SystemExit(f"FAIL: required template expressions missing: {missing_tokens}")
+
+
+          forbidden_branding = [
+              "<span class='brand-mark'>م</span><span>موضوع ",
+              "<div class='eyebrow'>أهلاً بك في موضوع</div>",
+              "<h2>تصنيفات موضوع</h2>",
+              "<div id='about'><h3>موضوع</h3>",
+          ]
+          remaining_branding = [value for value in forbidden_branding if value in text]
+          if remaining_branding:
+              raise SystemExit(f"FAIL: hard-coded reference-site branding remains: {remaining_branding}")
+
+          required_technology_labels = [
+              "شروحات البرامج والتطبيقات", "المشكلات والحلول",
+              "الأدوات الرقمية وتحويل الملفات", "الأمان والخصوصية الرقمية",
+              "المقارنات والترشيحات التقنية", "البرمجة وتطوير المواقع",
+              "الإنتاجية والعمل الرقمي", "الذكاء الاصطناعي",
+              "الأجهزة والهواتف", "الإنترنت والخدمات الرقمية",
+          ]
+          missing_technology_labels = [label for label in required_technology_labels if label not in text]
+          if missing_technology_labels:
+              raise SystemExit(f"FAIL: expected technology-focused sections missing: {missing_technology_labels}")
+
+          forbidden_off_topic = [
+              "فن الطهي", "أكلات خفيفة", "وصفات وأفكار سهلة للمطبخ",
+              "حيوانات ونباتات", "تنظيم المنزل", "حول العالم", "التغذية",
+              "العناية بالذات", "إسلام", "الحمل والولادة", "وزن ورشاقة",
+          ]
+          remaining_off_topic = [term for term in forbidden_off_topic if term in text]
+          if remaining_off_topic:
+              raise SystemExit(f"FAIL: off-topic homepage categories remain: {remaining_off_topic}")
+
+          print(f"PASS: XML parsed ({len(text)} characters)")
+          print(f"PASS: {len(sections)} Blogger sections; IDs are unique")
+          print("PASS: Blog1 article widget, editable LinkList1 navigation widget and three editable homepage HTML widgets found")
+          print("PASS: required article/listing/pagination structures found")
+          print(f"PASS: {len(theme_variables)} theme customization variables found with unique names")
+          print("NOTE: these checks do not replace installation and visual testing inside Blogger.")
+          PY

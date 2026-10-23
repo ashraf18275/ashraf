@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  <meta expr:content='data:blog.metaDescription' name='description'/>
+  <title><data:blog.pageTitle/></title>
+  <b:include data='blog' name='all-head-content'/>
+  <b:skin><![CDATA[
+    <Variable name="brand.color" description="اللون الرئيسي" type="color" default="#12a878"/>
+    <Variable name="brand.dark" description="اللون الرئيسي الداكن" type="color" default="#087c59"/>
+    <Variable name="text.color" description="لون النص" type="color" default="#202b36"/>
+    <Variable name="muted.color" description="لون النص الثانوي" type="color" default="#667085"/>
+    <Variable name="border.color" description="لون الحدود" type="color" default="#e7ecef"/>
+    <Variable name="surface.color" description="لون خلفية البطاقات" type="color" default="#f5f8f7"/>
+    <Variable name="page.color" description="خلفية الصفحة" type="color" default="#ffffff"/>
+    <Variable name="nav.color" description="خلفية قائمة التنقل" type="color" default="#12a878"/>
+    <Variable name="footer.color" description="خلفية التذييل" type="color" default="#172b25"/>
+    <Variable name="hero.color" description="خلفية منطقة الترحيب" type="color" default="#eefaf5"/>
+    <Variable name="content.width" description="عرض المحتوى" type="length" default="1180px" min="960px" max="1440px"/>
+    <Variable name="card.radius" description="استدارة البطاقات" type="length" default="16px" min="0px" max="32px"/>
+    <Variable name="body.font" description="خط النص الأساسي" type="font" default="normal normal 16px Tahoma, Arial, sans-serif"/>
+    :root{--brand:$(brand.color);--brand-dark:$(brand.dark);--ink:$(text.color);--muted:$(muted.color);--line:$(border.color);--soft:$(surface.color);--white:$(page.color);--page-bg:$(page.color);--nav-bg:$(nav.color);--footer-bg:$(footer.color);--hero-bg:$(hero.color);--content-width:$(content.width);--radius:$(card.radius);--body-font:$(body.font)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--page-bg);color:var(--ink);font:var(--body-font);line-height:1.8}
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--brand-dark)}
+    .container{width:min(var(--content-width),calc(100% - 32px));margin-inline:auto}
+    .topline{background:#f7faf9;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+    .topline .container{display:flex;gap:20px;align-items:center;min-height:38px;flex-wrap:wrap}
+    .toplinks{display:flex;gap:18px;flex-wrap:wrap}
+    .masthead{padding:22px 0}
+    .masthead-inner{display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-size:30px;font-weight:800;color:var(--brand-dark)}
+    .brand-mark{width:46px;height:46px;border-radius:14px;background:var(--brand);color:white;display:grid;place-items:center;font-size:26px}
+    .tagline{font-size:13px;color:var(--muted);font-weight:400}
+    .search{display:flex;width:min(440px,100%);border:1px solid #dce5e1;border-radius:12px;overflow:hidden;background:#fff}
+    .search input{border:0;outline:0;min-width:0;flex:1;padding:12px 15px;font:inherit}
+    .search button{border:0;background:var(--brand);color:#fff;padding:0 20px;font:inherit;cursor:pointer}
+    .navwrap{background:var(--nav-bg);color:#fff;position:relative;z-index:10}
+    .navinner{display:flex;align-items:center;gap:0;min-height:54px}
+    .menu-toggle{display:none;background:transparent;border:0;color:white;font-size:25px;padding:8px 12px}
+    .mainnav{display:flex;align-items:center;gap:0;flex-wrap:wrap}
+    .mainnav>a,.navitem>button{display:block;padding:13px 15px;color:white;font:inherit;font-size:14px;border:0;background:transparent;cursor:pointer}
+    .mainnav .menu-section{width:100%;min-width:0}
+    .mainnav .widget{margin:0}
+    .mainnav .widget-content ul{display:flex;align-items:center;flex-wrap:wrap;gap:0;list-style:none;margin:0;padding:0}
+    .mainnav .widget-content li{list-style:none;margin:0;padding:0}
+    .mainnav .widget-content a{display:block;padding:13px 15px;color:#fff;font-size:14px}
+    .mainnav .widget-content a:hover{background:rgba(0,0,0,.12);color:#fff}
+    .mainnav>a:hover,.navitem>button:hover{background:rgba(0,0,0,.12);color:#fff}
+    .navitem{position:relative}
+    .dropdown{display:none;position:absolute;top:100%;right:0;background:#fff;color:var(--ink);min-width:220px;max-height:65vh;overflow:auto;box-shadow:0 12px 32px #0b30251f;border:1px solid var(--line);border-radius:0 0 12px 12px;padding:8px}
+    .navitem:hover .dropdown,.navitem:focus-within .dropdown{display:block}
+    .dropdown a{display:block;padding:8px 12px;border-radius:8px;font-size:14px}
+    .dropdown a:hover{background:var(--soft)}
+    .hero{padding:32px 0 20px}
+    .hero-box{background:linear-gradient(120deg,var(--hero-bg),var(--page-bg));border:1px solid var(--line);border-radius:22px;padding:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:25px;align-items:center}
+    .hero-content-section .widget{margin:0}
+    .hero-content-section .widget-content{min-width:0}
+    .editable-home-section .widget{margin:0}
+    .editable-home-section .widget-content{min-width:0}
+    .eyebrow{color:var(--brand-dark);font-size:13px;font-weight:700}
+    h1{font-size:clamp(27px,4vw,42px);line-height:1.35;margin:8px 0 10px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .hero-search{max-width:560px}
+    .hero-symbols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .symbol{background:#fff;border:1px solid #e5eee9;border-radius:15px;padding:18px 10px;text-align:center;display:block;color:inherit;transition:transform .18s ease,box-shadow .18s ease}
+    .symbol:hover{transform:translateY(-2px);box-shadow:0 8px 22px #123a2812;color:var(--brand-dark)}
+    .symbol .ico{font-size:27px;display:block;margin-bottom:5px}
+    .symbol span:last-child{font-size:13px;font-weight:700}
+    .section{padding:22px 0}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+    .section-head h2{font-size:23px;margin:0}
+    .section-head h2:before{content:"";display:inline-block;width:5px;height:24px;background:var(--brand);border-radius:4px;margin-inline-end:10px;vertical-align:middle}
+    .muted{color:var(--muted)}
+    .trending-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .trend-card{border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:var(--page-bg);min-height:130px}
+    .trend-card .category{color:var(--brand-dark);font-size:12px;font-weight:700}
+    .trend-card h3{font-size:16px;line-height:1.6;margin:8px 0}
+    .category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .category-card{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--page-bg)}
+    .category-title{display:flex;align-items:center;gap:10px;padding:15px;background:var(--soft);border-bottom:1px solid var(--line);font-weight:800}
+    .category-title .ico{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:#e1f6ec;font-size:20px}
+    .subcategory-list{padding:10px 14px 14px;display:flex;flex-wrap:wrap;gap:7px}
+    .subcategory-list a{background:#f6f8f7;border:1px solid #edf1ef;border-radius:20px;padding:4px 9px;font-size:12px;color:#4c5b55}
+    .subcategory-list a:hover{background:#e4f7ed;color:var(--brand-dark)}
+    .content-layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:26px}
+    .posts{min-width:0}
+    .post-card{display:grid;grid-template-columns:180px minmax(0,1fr);gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+    .post-thumb{background:var(--soft);border-radius:12px;min-height:130px;display:grid;place-items:center;color:#a0b3aa;font-size:34px;overflow:hidden}
+    .post-thumb img{width:100%;height:100%;object-fit:cover}
+    .post-card h3{font-size:19px;line-height:1.55;margin:2px 0 7px;overflow-wrap:anywhere}
+    .post-card p{margin:0;color:var(--muted);font-size:14px}
+    .sidebar-box{border:1px solid var(--line);border-radius:var(--radius);padding:17px;margin-bottom:16px}
+    .sidebar-box h3{font-size:17px;margin:0 0 10px}
+    .sidebar-box a{display:block;padding:7px 0;border-bottom:1px solid #f0f2f1;font-size:14px}
+    .article{max-width:850px;margin:30px auto}
+    body:has(.post-outer.article) #blog-content-layout{display:block}
+    body:has(.post-outer.article) .sidebar{display:none}
+    body:has(.post-outer.article) .post-outer.article{max-width:850px;margin:24px auto;padding:0 0 25px}
+    .article h1{font-size:clamp(27px,4vw,40px)}
+    .article-body{font-size:18px;line-height:2}
+    .article-body img{max-width:100%;height:auto;border-radius:12px}
+    .blog-pager{display:flex;justify-content:space-between;gap:12px;padding:24px 0}
+    .blog-pager a{background:var(--soft);border-radius:10px;padding:9px 15px}
+    .footer{margin-top:40px;background:var(--footer-bg);color:#e7f2ed;padding:35px 0 18px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+    .footer h3{color:#fff;margin-top:0}
+    .footer a{display:block;color:#d0e1d9;padding:3px 0;font-size:14px}
+    .copyright{border-top:1px solid #ffffff20;margin-top:25px;padding-top:15px;font-size:12px;color:#b5c9c0}
+    .label-line{font-size:12px;color:var(--brand-dark);font-weight:bold}
+    .widget{margin-bottom:18px}
+    .ad-area{width:100%;margin:0 auto;min-width:0}
+    .ad-area .widget{margin:18px auto}
+    .article-inline-ad:empty{display:none}
+    .article-inline-ad{max-width:100%;margin:26px 0;min-height:0;text-align:center;overflow:hidden}
+    .article-inline-ad ins,.article-inline-ad iframe,.article-inline-ad img{max-width:100%}
+    .ad-area .widget-content{max-width:100%;overflow:hidden;text-align:center}
+    .ad-area .widget-content img,.ad-area iframe{max-width:100%}
+    .article-meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;color:var(--muted);font-size:13px;margin:12px 0 22px}
+    .article-labels{display:flex;flex-wrap:wrap;gap:7px;margin:24px 0}
+    .article-labels a{background:#eaf8f1;border:1px solid #d8f0e4;color:var(--brand-dark);border-radius:999px;padding:5px 10px;font-size:12px}
+    .article-body{overflow-wrap:anywhere}
+    .article-body h2,.article-body h3{line-height:1.6;margin:1.5em 0 .6em}
+    .article-body p{margin:0 0 1.15em}
+    .article-body ul,.article-body ol{padding-inline-start:1.6em}
+    .article-body blockquote{border-inline-start:4px solid var(--brand);margin:1.4em 0;padding:10px 16px;background:var(--soft);border-radius:8px}
+    .article-body table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}
+    .article-body th,.article-body td{border:1px solid var(--line);padding:8px 10px}
+    .article-body iframe{max-width:100%}
+    .page-heading{padding:24px 0 8px}
+    .page-heading h1{font-size:clamp(24px,3.5vw,34px);margin:0}
+    .page-heading p{margin:7px 0 0;color:var(--muted)}
+    .post-card .post-thumb img{object-fit:cover;aspect-ratio:4/3}
+    .post-card .post-thumb:focus-visible,.post-card a:focus-visible,.mainnav a:focus-visible,.mainnav button:focus-visible{outline:3px solid #f5c451;outline-offset:2px}
+    body#layout .ad-area{min-height:82px;border:1px dashed #8aa99b;background:#f3faf6;padding:12px}
+    body#layout .ad-area:before{content:attr(data-ad-label);display:block;color:#087c59;font-size:13px;font-weight:700;text-align:center}
+    @media(max-width:680px){.article{margin:18px auto}.article-body{font-size:16px}.article-meta{font-size:12px}.ad-area{margin:12px auto}.page-heading{padding-top:18px}}
+    @media(max-width:900px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trending-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content-layout{grid-template-columns:minmax(0,1fr) 240px}.hero-box{grid-template-columns:1fr}.hero-symbols{max-width:520px}}
+    @media(max-width:680px){.container{width:min(100% - 22px,1180px)}.masthead{padding:14px 0}.masthead-inner{align-items:flex-start;flex-direction:column;gap:13px}.brand{font-size:25px}.brand-mark{width:40px;height:40px}.search{width:100%}.navinner{display:block}.menu-toggle{display:block;width:100%;text-align:right}.mainnav{display:none;flex-direction:column;align-items:stretch;padding-bottom:8px}.mainnav.open{display:flex}.mainnav>a,.navitem>button,.mainnav .widget-content a{width:100%;text-align:right;padding:10px 14px}.mainnav .widget-content ul{display:flex;flex-direction:column;align-items:stretch}.mainnav .widget-content li{width:100%}.navitem{width:100%}.dropdown{position:static;box-shadow:none;border-radius:10px;margin:0 8px 8px;max-height:300px}.navitem:hover .dropdown{display:none}.navitem.expanded .dropdown{display:block}.hero{padding-top:18px}.hero-box{padding:20px;border-radius:16px}.hero-symbols{grid-template-columns:repeat(3,1fr);gap:7px}.symbol{padding:12px 5px}.symbol .ico{font-size:22px}.symbol span:last-child{font-size:11px}.section-head h2{font-size:20px}.category-grid{grid-template-columns:1fr;gap:10px}.trending-grid{grid-template-columns:1fr 1fr;gap:9px}.trend-card{padding:12px;min-height:unset}.trend-card h3{font-size:14px}.content-layout{grid-template-columns:1fr}.sidebar{display:none}.post-card{grid-template-columns:105px minmax(0,1fr);gap:12px}.post-thumb{min-height:95px}.post-card h3{font-size:16px}.post-card p{font-size:13px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
+
+    /* Match the approved green GitHub Pages preview */
+    .topline{display:none!important}
+    .masthead{padding:18px 0;background:#fff}
+    .masthead-inner{justify-content:flex-start;gap:0}
+    .brand{display:flex;flex-direction:row-reverse;align-items:center;gap:8px;color:var(--brand);font-size:29px;white-space:normal}
+    .brand-mark{width:auto;height:auto;background:transparent;color:var(--ink);border-radius:0;font-size:32px;line-height:1}
+    .brand>span:last-child{display:flex;flex-direction:column;gap:3px}
+    .tagline{font-size:13px;color:var(--muted);font-weight:400}
+    .navwrap{background:#fff;color:var(--ink);border-top:1px solid #f0f2f3;border-bottom:1px solid var(--line)}
+    .navinner{min-height:60px;overflow-x:auto}
+    .menu-toggle{color:var(--brand-dark)}
+    .mainnav{display:flex;align-items:center;gap:8px;flex-wrap:nowrap;white-space:nowrap;overflow-x:auto;width:100%}
+    .mainnav .menu-section{flex:0 0 auto;width:auto}
+    .mainnav .widget-content ul{flex-wrap:nowrap;gap:8px}
+    .mainnav .widget-content li{flex:0 0 auto}
+    .mainnav .widget-content a,.mainnav>a,.navitem>button{color:var(--ink);padding:9px 13px;border-radius:10px;font-size:14px}
+    .mainnav .widget-content li:first-child a{background:#eaf8f2;color:var(--brand-dark)}
+    .mainnav .widget-content a:hover,.mainnav>a:hover,.navitem>button:hover{background:#eaf8f2;color:var(--brand-dark)}
+    .hero{padding:24px 0 26px}
+    .hero-box{background:linear-gradient(115deg,#e9f8f1,#f6fbf8);border:1px solid #d9f0e5;border-radius:22px;padding:30px;grid-template-columns:1.4fr .8fr;gap:24px}
+    .hero-art{min-height:160px;border-radius:18px;background:linear-gradient(135deg,#12a878,#087c59);display:flex;align-items:center;justify-content:center;color:#fff;font-size:64px}
+    .hero-art span{font-size:70px;line-height:1}
+    .hero-search{max-width:100%;border-radius:12px;margin:16px 0}
+    .hero-search input{padding:12px 15px}
+    .hero-search button{padding:0 18px}
+    .hero-symbols{display:none!important}
+    .section{padding:22px 0}
+    .section-head h2:before{margin-inline-end:10px}
+    .trending-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media(max-width:800px){
+      .masthead{padding:14px 0}
+      .masthead-inner{justify-content:flex-start}
+      .brand{font-size:25px;gap:6px}
+      .brand-mark{font-size:30px}
+      .navinner{min-height:58px}
+      .mainnav{flex-direction:row;align-items:center}
+      .menu-toggle{display:none}
+      .mainnav{display:flex;flex-wrap:nowrap}
+      .mainnav .widget-content ul{display:flex;flex-direction:row;align-items:center;flex-wrap:nowrap;gap:8px}
+      .mainnav .widget-content li{width:auto;flex:0 0 auto}
+      .mainnav .widget-content li a{white-space:nowrap}
+      .ad-area:has(.section:empty),.ad-area:has(> .section:not(:has(.widget))){display:none!important}
+      .hero{padding:14px 0 20px}
+      .hero-box{grid-template-columns:1fr;padding:21px;gap:18px}
+      .hero-art{min-height:100px;font-size:45px;grid-row:2}
+      .hero-art span{font-size:48px}
+      .trending-grid{grid-template-columns:1fr 1fr}
+      .category-grid{grid-template-columns:1fr 1fr}
+    }
+    @media(max-width:430px){
+      .container{width:calc(100% - 24px)}
+      .brand{font-size:24px}
+      .hero-box{padding:18px}
+      .hero h1{font-size:25px}
+      .trending-grid{grid-template-columns:1fr}
+      .category-grid{grid-template-columns:1fr}
+    }
+  ]]></b:skin>
+</head>
+<body>
+  <div class='topline'><div class='container'>
+    <div class='toplinks'>
+      <a href='/search/label/أجدد المقالات'>أجدد المقالات</a>
+      <a href='/search/label/الأكثر رواجاً'>الأكثر رواجاً</a>
+      <a href='#categories'>التصنيفات</a>
+      <a href='#about'>عن الموقع</a>
+      <a href='#contact'>اتصل بنا</a>
+    </div>
+  </div></div>
+  <header class='masthead'><div class='container masthead-inner'>
+    <a class='brand' expr:href='data:blog.homepageUrl'><span class='brand-mark'>+</span><span><data:blog.title/> <span class='tagline'><b:if cond='data:blog.description'><data:blog.description/><b:else/>شروحات تقنية وأدوات رقمية</b:if></span></span></a>
+    
+  </div></header>
+  <div class='navwrap'><div class='container navinner'>
+    <button aria-label='فتح القائمة' class='menu-toggle' onclick='document.getElementById("mainnav").classList.toggle("open")' type='button'>☰　الأقسام</button>
+    <nav class='mainnav' id='mainnav'>
+      <b:section id='main-menu' class='menu-section' maxwidgets='1' showaddelement='no'>
+        <b:widget id='LinkList1' locked='false' title='القائمة الرئيسية' type='LinkList' version='2' visible='true'>
+          <b:widget-settings>
+<b:widget-setting name='sorting'>NONE</b:widget-setting>
+<b:widget-setting name='text-0'>الرئيسية</b:widget-setting><b:widget-setting name='link-0'>/</b:widget-setting>
+<b:widget-setting name='text-1'>المشكلات والحلول</b:widget-setting><b:widget-setting name='link-1'>/search/label/المشكلات والحلول</b:widget-setting>
+<b:widget-setting name='text-2'>شروحات البرامج</b:widget-setting><b:widget-setting name='link-2'>/search/label/شروحات البرامج والتطبيقات</b:widget-setting>
+<b:widget-setting name='text-3'>الأدوات الرقمية</b:widget-setting><b:widget-setting name='link-3'>/search/label/الأدوات الرقمية وتحويل الملفات</b:widget-setting>
+<b:widget-setting name='text-4'>الأمان والخصوصية</b:widget-setting><b:widget-setting name='link-4'>/search/label/الأمان والخصوصية الرقمية</b:widget-setting>
+<b:widget-setting name='text-5'>المقارنات التقنية</b:widget-setting><b:widget-setting name='link-5'>/search/label/المقارنات والترشيحات التقنية</b:widget-setting>
+<b:widget-setting name='text-6'>البرمجة وتطوير المواقع</b:widget-setting><b:widget-setting name='link-6'>/search/label/البرمجة وتطوير المواقع</b:widget-setting>
+<b:widget-setting name='text-7'>الإنتاجية والعمل الرقمي</b:widget-setting><b:widget-setting name='link-7'>/search/label/الإنتاجية والعمل الرقمي</b:widget-setting>
+</b:widget-settings>
+          <b:includable id='main'>
+            <div class='widget-content'><ul><b:loop values='data:links' var='link'><li><a expr:href='data:link.target'><data:link.name/></a></li></b:loop></ul></div>
+          </b:includable>
+        </b:widget>
+      </b:section>
+    </nav>
+  </div></div>
+  <div class='container ad-area' data-ad-label='مساحة إعلانية أعلى المحتوى' aria-label='مساحة إعلانية أعلى المحتوى'><b:section id='ad-top' maxwidgets='1' showaddelement='yes'/></div>
+  <b:if cond='data:blog.url == data:blog.homepageUrl'>
+    <section class='hero'><div class='container'><div class='hero-box'>
+      <b:section id='hero-content' class='hero-content-section' maxwidgets='1' showaddelement='no'>
+        <b:widget id='HTML1' locked='false' title='مقدمة الصفحة الرئيسية' type='HTML' version='2' visible='true'>
+          <b:widget-settings>
+            <b:widget-setting name='content'><![CDATA[<div class="eyebrow">مرحبًا بك في البوابة العربية للتقنية</div><h1>اكتشف التقنية التي تصنع الفرق</h1><p>شروحات تقنية، وأدوات رقمية، وأخبار الذكاء الاصطناعي، وحلول عملية باللغة العربية.</p><form action="/search" class="search hero-search" method="get"><input name="q" placeholder="ما الذي تريد معرفته؟" type="search"/><button type="submit">ابحث</button></form>]]></b:widget-setting>
+          </b:widget-settings>
+          <b:includable id='main'><div class='widget-content'><data:content/></div></b:includable>
+        </b:widget>
+      </b:section>
+      <div class='hero-art' aria-hidden='true'><span>✦</span></div>
+    </div></div></section>
+    <b:section id='trending-content' class='editable-home-section' maxwidgets='1' showaddelement='no'>
+      <b:widget id='HTML2' locked='false' title='الموضوعات المتداولة' type='HTML' version='2' visible='true'>
+        <b:widget-settings><b:widget-setting name='content'><![CDATA[<section class='section'><div class='container'><div class='section-head'><h2>ابدأ من هنا</h2><span class='muted'>أهم خدمات ومحتويات البوابة</span></div><div class='trending-grid'>
+<a class='trend-card' href='/search/label/المشكلات والحلول'><span class='category'>المشكلات والحلول</span><h3>حلول عملية لأخطاء الأجهزة والبرامج والإنترنت</h3><span class='muted'>اكتشف المزيد ←</span></a>
+<a class='trend-card' href='/search/label/شروحات البرامج والتطبيقات'><span class='category'>شروحات البرامج والتطبيقات</span><h3>تعلم استخدام البرامج والتطبيقات خطوة بخطوة</h3><span class='muted'>اكتشف المزيد ←</span></a>
+<a class='trend-card' href='/search/label/الأدوات الرقمية وتحويل الملفات'><span class='category'>الأدوات الرقمية وتحويل الملفات</span><h3>أدوات مفيدة لتحويل الملفات وإنجاز المهام</h3><span class='muted'>اكتشف المزيد ←</span></a>
+<a class='trend-card' href='/search/label/الأمان والخصوصية الرقمية'><span class='category'>الأمان والخصوصية الرقمية</span><h3>إرشادات لحماية الحسابات والبيانات</h3><span class='muted'>اكتشف المزيد ←</span></a>
+</div></div></section>]]></b:widget-setting></b:widget-settings>
+        <b:includable id='main'><div class='widget-content'><data:content/></div></b:includable>
+      </b:widget>
+    </b:section>
+    <b:section id='category-content' class='editable-home-section' maxwidgets='1' showaddelement='no'>
+      <b:widget id='HTML3' locked='false' title='تصنيفات الصفحة الرئيسية' type='HTML' version='2' visible='true'>
+        <b:widget-settings><b:widget-setting name='content'><![CDATA[<section class='section' id='categories'><div class='container'><div class='section-head'><h2>أقسام البوابة العربية للتقنية</h2><span class='muted'>شروحات عملية وأدوات ومشكلات وحلول</span></div><div class='category-grid'>
+<div class='category-card'><div class='category-title'><span class='ico'>🧰</span>شروحات البرامج والتطبيقات</div><div class='subcategory-list'><a href='/search/label/شرح برامج الكمبيوتر'>شرح برامج الكمبيوتر</a><a href='/search/label/شروحات تطبيقات الهاتف'>شروحات تطبيقات الهاتف</a><a href='/search/label/تثبيت البرامج'>تثبيت البرامج</a><a href='/search/label/إعدادات التطبيقات'>إعدادات التطبيقات</a><a href='/search/label/بدائل البرامج'>بدائل البرامج</a></div></div>
+<div class='category-card'><div class='category-title'><span class='ico'>🛠️</span>المشكلات والحلول</div><div class='subcategory-list'><a href='/search/label/مشكلات ويندوز'>مشكلات ويندوز</a><a href='/search/label/مشكلات أندرويد'>مشكلات أندرويد</a><a href='/search/label/مشكلات الإنترنت'>مشكلات الإنترنت</a><a href='/search/label/أخطاء البرامج'>أخطاء البرامج</a><a href='/search/label/حلول التثبيت والتحديث'>حلول التثبيت والتحديث</a></div></div>
+<div class='category-card'><div class='category-title'><span class='ico'>📁</span>الأدوات الرقمية وتحويل الملفات</div><div class='subcategory-list'><a href='/search/label/تحويل الصور'>تحويل الصور</a><a href='/search/label/تحويل الملفات'>تحويل الملفات</a><a href='/search/label/أدوات PDF'>أدوات PDF</a><a href='/search/label/ضغط الصور'>ضغط الصور</a><a href='/search/label/أدوات مجانية'>أدوات مجانية</a></div></div>
+<div class='category-card'><div class='category-title'><span class='ico'>🔐</span>الأمان والخصوصية الرقمية</div><div class='subcategory-list'><a href='/search/label/حماية الحسابات'>حماية الحسابات</a><a href='/search/label/الخصوصية الرقمية'>الخصوصية الرقمية</a><a href='/search/label/المصادقة الثنائية'>المصادقة الثنائية</a><a href='/search/label/الاحتيال الإلكتروني'>الاحتيال الإلكتروني</a><a href='/search/label/النسخ الاحتياطي'>النسخ الاحتياطي</a></div></div>
+<div class='category-card'><div class='category-title'><span class='ico'>⚖️</span>المقارنات والترشيحات التقنية</div><div class='subcategory-list'><a href='/search/label/مقارنة البرامج'>مقارنة البرامج</a><a href='/search/label/أفضل التطبيقات'>أفضل التطبيقات</a><a href='/search/label/بدائل مجانية'>بدائل مجانية</a><a href='/search/label/مقارنة الأدوات'>مقارنة الأدوات</a><a href='/search/label/اختيار الأجهزة'>اختيار الأجهزة</a></div></div>
+<div class='category-card'><div class='category-title'><span class='ico'>💻</span>البرمجة وتطوير المواقع</div><div class='subcategory-list'><a href='/search/label/تعلم البرمجة'>تعلم البرمجة</a><a href='/search/label/بايثون'>بايثون</a><a href='/search/label/HTML وCSS'>HTML وCSS</a><a href='/search/label/تطوير المواقع'>تطوير المواقع</a><a href='/search/label/أدوات المطورين'>أدوات المطورين</a></div></div>
+<div class='category-card'><div class='category-title'><span class='ico'>⚙️</span>الإنتاجية والعمل الرقمي</div><div class='subcategory-list'><a href='/search/label/أتمتة المهام'>أتمتة المهام</a><a href='/search/label/أدوات الإنتاجية'>أدوات الإنتاجية</a><a href='/search/label/العمل الحر التقني'>العمل الحر التقني</a><a href='/search/label/التدوين وSEO'>التدوين وSEO</a><a href='/search/label/تنظيم العمل'>تنظيم العمل</a></div></div>
+<div class='category-card'><div class='category-title'><span class='ico'>🤖</span>الذكاء الاصطناعي</div><div class='subcategory-list'><a href='/search/label/أدوات الذكاء الاصطناعي'>أدوات الذكاء الاصطناعي</a><a href='/search/label/النماذج الذكية'>النماذج الذكية</a><a href='/search/label/الذكاء الاصطناعي التوليدي'>الذكاء الاصطناعي التوليدي</a><a href='/search/label/كتابة الأوامر'>كتابة الأوامر</a><a href='/search/label/تطبيقات عملية'>تطبيقات عملية</a></div></div>
+<div class='category-card'><div class='category-title'><span class='ico'>📱</span>الأجهزة والهواتف</div><div class='subcategory-list'><a href='/search/label/هواتف أندرويد'>هواتف أندرويد</a><a href='/search/label/آيفون'>آيفون</a><a href='/search/label/أجهزة الكمبيوتر'>أجهزة الكمبيوتر</a><a href='/search/label/مراجعات الأجهزة'>مراجعات الأجهزة</a><a href='/search/label/تحسين الأداء'>تحسين الأداء</a></div></div>
+<div class='category-card'><div class='category-title'><span class='ico'>🌐</span>الإنترنت والخدمات الرقمية</div><div class='subcategory-list'><a href='/search/label/خدمات جوجل'>خدمات جوجل</a><a href='/search/label/التخزين السحابي'>التخزين السحابي</a><a href='/search/label/البريد الإلكتروني'>البريد الإلكتروني</a><a href='/search/label/المتصفحات'>المتصفحات</a><a href='/search/label/حلول الإنترنت'>حلول الإنترنت</a></div></div>
+</div></div></section>]]></b:widget-setting></b:widget-settings>
+        <b:includable id='main'><div class='widget-content'><data:content/></div></b:includable>
+      </b:widget>
+    </b:section>
+  </b:if>
+  <main class='container'>
+    <b:if cond='data:blog.pageType == "item"'>
+      <div class='container ad-area' data-ad-label='مساحة إعلانية قبل المقال' aria-label='مساحة إعلانية قبل المقال'><b:section id='article-ad-before' maxwidgets='1' showaddelement='yes'/></div>
+      <div class='article'>
+        <b:section id='article-top' maxwidgets='1' showaddelement='yes'/>
+      </div>
+    </b:if>
+    <div class='content-layout' id='blog-content-layout'>
+      <section class='posts'>
+        <b:if cond='data:blog.pageType != "item"'>
+          <div class='page-heading'><h1><b:if cond='data:blog.searchLabel'><data:blog.searchLabel/><b:else/><b:if cond='data:blog.searchQuery'>نتائج البحث عن: <data:blog.searchQuery/><b:else/><b:if cond='data:blog.pageType == "archive"'>أرشيف المقالات<b:else/>أحدث المقالات</b:if></b:if></b:if></h1><b:if cond='data:blog.searchLabel'><p>تصفح المقالات المنشورة ضمن هذا التصنيف.</p></b:if></div>
+          <div class='ad-area' data-ad-label='مساحة إعلانية أعلى قائمة المقالات' aria-label='مساحة إعلانية أعلى قائمة المقالات'><b:section id='listing-ad-top' maxwidgets='1' showaddelement='yes'/></div>
+        </b:if>
+        <b:section id='main-posts' class='main' showaddelement='no'>
+          <b:widget id='Blog1' locked='true' title='المقالات' type='Blog' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+              <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+              <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+              <b:widget-setting name='showAuthor'>true</b:widget-setting>
+              <b:widget-setting name='showLabels'>true</b:widget-setting>
+              <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+              <b:widget-setting name='showReactions'>false</b:widget-setting>
+              <b:widget-setting name='showLocation'>false</b:widget-setting>
+              <b:widget-setting name='showPostLabels'>true</b:widget-setting>
+              <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main' var='top'>
+              <b:loop values='data:posts' var='post'>
+                <b:if cond='data:blog.pageType == "item"'>
+                  <article class='post-outer article'>
+                    <h1><data:post.title/></h1>
+                    <div class='article-meta'><span>نُشر في <data:post.timestamp/></span><b:if cond='data:post.author'><span>بواسطة <data:post.author.name/></span></b:if></div>
+                    <div class='article-body'><data:post.body/></div>
+                    <div class='article-inline-ad' aria-label='مساحة إعلانية داخل المقال'><!-- مساحة اختيارية لكود الإعلان داخل المقال؛ تبقى مخفية حتى إضافة الكود --></div>
+                    <div class='article-labels'><b:loop values='data:post.labels' var='label'><a expr:href='data:label.url'><data:label.name/></a></b:loop></div>
+                  </article>
+                <b:else/>
+                  <article class='post-card'>
+                    <a class='post-thumb' expr:href='data:post.url'>
+                      <b:if cond='data:post.firstImageUrl'><img expr:src='data:post.firstImageUrl' expr:alt='data:post.title'/><b:else/>✦</b:if>
+                    </a>
+                    <div>
+                      <div class='label-line'><data:post.timestamp/></div>
+                      <h3><a expr:href='data:post.url'><data:post.title/></a></h3>
+                      <p><data:post.snippet/></p>
+                      <a class='label-line' expr:href='data:post.url'>اقرأ المزيد ←</a>
+                    </div>
+                  </article>
+                </b:if>
+              </b:loop>
+              <b:include name='nextprev'/>
+            </b:includable>
+            <b:includable id='nextprev'>
+              <div class='blog-pager'>
+                <b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl'>← الأحدث</a></b:if>
+                <b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl'>الأقدم →</a></b:if>
+              </div>
+            </b:includable>
+          </b:widget>
+        </b:section>
+        <b:if cond='data:blog.pageType == "item"'>
+          <div class='ad-area' data-ad-label='مساحة إعلانية بعد المقال' aria-label='مساحة إعلانية بعد المقال'><b:section id='article-ad-after' maxwidgets='1' showaddelement='yes'/></div>
+        <b:else/>
+          <div class='ad-area' data-ad-label='مساحة إعلانية أسفل قائمة المقالات' aria-label='مساحة إعلانية أسفل قائمة المقالات'><b:section id='listing-ad-bottom' maxwidgets='1' showaddelement='yes'/></div>
+        </b:if>
+      </section>
+      <aside class='sidebar'>
+        <div class='sidebar-box'><h3>تصفح الأقسام</h3>
+          <a href='/search/label/الذكاء الاصطناعي'>🤖 الذكاء الاصطناعي</a><a href='/search/label/الأجهزة والهواتف'>📱 الأجهزة والهواتف</a><a href='/search/label/التطبيقات والبرامج'>🧩 التطبيقات والبرامج</a><a href='/search/label/البرمجة وتطوير الويب'>💻 البرمجة وتطوير الويب</a><a href='/search/label/الأمن السيبراني'>🔐 الأمن السيبراني</a><a href='/search/label/الأدوات الرقمية'>🛠️ الأدوات الرقمية</a>
+        </div>
+        <div class='ad-area' data-ad-label='مساحة إعلانية جانبية' aria-label='مساحة إعلانية جانبية'><b:section id='sidebar-ad' maxwidgets='1' showaddelement='yes'/></div>
+        <b:section id='sidebar-widgets' showaddelement='yes'/>
+      </aside>
+    </div>
+  </main>
+  <div class='container ad-area' data-ad-label='مساحة إعلانية أسفل الصفحة' aria-label='مساحة إعلانية أسفل الصفحة'><b:section id='ad-bottom' maxwidgets='1' showaddelement='yes'/></div>
+  <footer class='footer'><div class='container'><div class='footer-grid'><div id='about'><h3><data:blog.title/></h3><p><b:if cond='data:blog.description'><data:blog.description/><b:else/>محتوى عربي عن الذكاء الاصطناعي والأجهزة والتطبيقات والبرمجة والأمن السيبراني والأدوات الرقمية.</b:if></p></div><div><h3>تصفح</h3><a href='/'>الرئيسية</a><a href='#categories'>التصنيفات</a><a href='/search'>البحث</a></div><div id='contact'><h3>روابط الموقع</h3><a href='/p/about.html'>من نحن</a><a href='/p/contact.html'>اتصل بنا</a><a href='/p/privacy.html'>سياسة الخصوصية</a></div></div><div class='copyright'>© <data:blog.title/> — جميع الحقوق محفوظة</div></div></footer>
+  <script type='text/javascript'>
+  //<![CDATA[
+  (function(){var nav=document.getElementById('mainnav');document.addEventListener('click',function(e){if(!e.target.closest('.navitem')&&!e.target.closest('.menu-toggle')){var items=document.querySelectorAll('.navitem.expanded');items.forEach(function(x){x.classList.remove('expanded');});}});})();
+  //]]>
+  </script>
+</body>
+</html>
