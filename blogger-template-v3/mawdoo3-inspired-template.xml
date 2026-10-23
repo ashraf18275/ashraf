@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta content='width=device-width, initial-scale=1' name='viewport'/>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  <meta expr:content='data:blog.metaDescription' name='description'/>
+  <title><data:blog.pageTitle/></title>
+  <b:include data='blog' name='all-head-content'/>
+  <b:skin><![CDATA[
+    :root{--brand:#12a878;--brand-dark:#087c59;--ink:#202b36;--muted:#667085;--line:#e7ecef;--soft:#f5f8f7;--white:#fff;--radius:16px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#fff;color:var(--ink);font-family:Tahoma,Arial,sans-serif;line-height:1.8}
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--brand-dark)}
+    .container{width:min(1180px,calc(100% - 32px));margin-inline:auto}
+    .topline{background:#f7faf9;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+    .topline .container{display:flex;gap:20px;align-items:center;min-height:38px;flex-wrap:wrap}
+    .toplinks{display:flex;gap:18px;flex-wrap:wrap}
+    .masthead{padding:22px 0}
+    .masthead-inner{display:flex;align-items:center;justify-content:space-between;gap:22px}
+    .brand{display:flex;align-items:center;gap:12px;font-size:30px;font-weight:800;color:var(--brand-dark)}
+    .brand-mark{width:46px;height:46px;border-radius:14px;background:var(--brand);color:white;display:grid;place-items:center;font-size:26px}
+    .tagline{font-size:13px;color:var(--muted);font-weight:400}
+    .search{display:flex;width:min(440px,100%);border:1px solid #dce5e1;border-radius:12px;overflow:hidden;background:#fff}
+    .search input{border:0;outline:0;min-width:0;flex:1;padding:12px 15px;font:inherit}
+    .search button{border:0;background:var(--brand);color:#fff;padding:0 20px;font:inherit;cursor:pointer}
+    .navwrap{background:var(--brand);color:#fff;position:relative;z-index:10}
+    .navinner{display:flex;align-items:center;gap:0;min-height:54px}
+    .menu-toggle{display:none;background:transparent;border:0;color:white;font-size:25px;padding:8px 12px}
+    .mainnav{display:flex;align-items:center;gap:0;flex-wrap:wrap}
+    .mainnav>a,.navitem>button{display:block;padding:13px 15px;color:white;font:inherit;font-size:14px;border:0;background:transparent;cursor:pointer}
+    .mainnav>a:hover,.navitem>button:hover{background:rgba(0,0,0,.12);color:#fff}
+    .navitem{position:relative}
+    .dropdown{display:none;position:absolute;top:100%;right:0;background:#fff;color:var(--ink);min-width:220px;max-height:65vh;overflow:auto;box-shadow:0 12px 32px #0b30251f;border:1px solid var(--line);border-radius:0 0 12px 12px;padding:8px}
+    .navitem:hover .dropdown,.navitem:focus-within .dropdown{display:block}
+    .dropdown a{display:block;padding:8px 12px;border-radius:8px;font-size:14px}
+    .dropdown a:hover{background:var(--soft)}
+    .hero{padding:32px 0 20px}
+    .hero-box{background:linear-gradient(120deg,#eefaf5,#f8fbfa);border:1px solid #e1f1e9;border-radius:22px;padding:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:25px;align-items:center}
+    .eyebrow{color:var(--brand-dark);font-size:13px;font-weight:700}
+    h1{font-size:clamp(27px,4vw,42px);line-height:1.35;margin:8px 0 10px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .hero-search{max-width:560px}
+    .hero-symbols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .symbol{background:#fff;border:1px solid #e5eee9;border-radius:15px;padding:18px 10px;text-align:center;display:block;color:inherit;transition:transform .18s ease,box-shadow .18s ease}
+    .symbol:hover{transform:translateY(-2px);box-shadow:0 8px 22px #123a2812;color:var(--brand-dark)}
+    .symbol .ico{font-size:27px;display:block;margin-bottom:5px}
+    .symbol span:last-child{font-size:13px;font-weight:700}
+    .section{padding:22px 0}
+    .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+    .section-head h2{font-size:23px;margin:0}
+    .section-head h2:before{content:"";display:inline-block;width:5px;height:24px;background:var(--brand);border-radius:4px;margin-inline-end:10px;vertical-align:middle}
+    .muted{color:var(--muted)}
+    .trending-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .trend-card{border:1px solid var(--line);border-radius:14px;padding:16px;background:#fff;min-height:130px}
+    .trend-card .category{color:var(--brand-dark);font-size:12px;font-weight:700}
+    .trend-card h3{font-size:16px;line-height:1.6;margin:8px 0}
+    .category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+    .category-card{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:white}
+    .category-title{display:flex;align-items:center;gap:10px;padding:15px;background:var(--soft);border-bottom:1px solid var(--line);font-weight:800}
+    .category-title .ico{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:#e1f6ec;font-size:20px}
+    .subcategory-list{padding:10px 14px 14px;display:flex;flex-wrap:wrap;gap:7px}
+    .subcategory-list a{background:#f6f8f7;border:1px solid #edf1ef;border-radius:20px;padding:4px 9px;font-size:12px;color:#4c5b55}
+    .subcategory-list a:hover{background:#e4f7ed;color:var(--brand-dark)}
+    .content-layout{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:26px}
+    .posts{min-width:0}
+    .post-card{display:grid;grid-template-columns:180px minmax(0,1fr);gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+    .post-thumb{background:var(--soft);border-radius:12px;min-height:130px;display:grid;place-items:center;color:#a0b3aa;font-size:34px;overflow:hidden}
+    .post-thumb img{width:100%;height:100%;object-fit:cover}
+    .post-card h3{font-size:19px;line-height:1.55;margin:2px 0 7px;overflow-wrap:anywhere}
+    .post-card p{margin:0;color:var(--muted);font-size:14px}
+    .sidebar-box{border:1px solid var(--line);border-radius:15px;padding:17px;margin-bottom:16px}
+    .sidebar-box h3{font-size:17px;margin:0 0 10px}
+    .sidebar-box a{display:block;padding:7px 0;border-bottom:1px solid #f0f2f1;font-size:14px}
+    .article{max-width:850px;margin:30px auto}
+    body:has(.post-outer.article) #blog-content-layout{display:block}
+    body:has(.post-outer.article) .sidebar{display:none}
+    body:has(.post-outer.article) .post-outer.article{max-width:850px;margin:24px auto;padding:0 0 25px}
+    .article h1{font-size:clamp(27px,4vw,40px)}
+    .article-body{font-size:18px;line-height:2}
+    .article-body img{max-width:100%;height:auto;border-radius:12px}
+    .blog-pager{display:flex;justify-content:space-between;gap:12px;padding:24px 0}
+    .blog-pager a{background:var(--soft);border-radius:10px;padding:9px 15px}
+    .footer{margin-top:40px;background:#172b25;color:#e7f2ed;padding:35px 0 18px}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:25px}
+    .footer h3{color:#fff;margin-top:0}
+    .footer a{display:block;color:#d0e1d9;padding:3px 0;font-size:14px}
+    .copyright{border-top:1px solid #ffffff20;margin-top:25px;padding-top:15px;font-size:12px;color:#b5c9c0}
+    .label-line{font-size:12px;color:var(--brand-dark);font-weight:bold}
+    .widget{margin-bottom:18px}
+    .ad-area{width:100%;margin:0 auto;min-width:0}
+    .ad-area .widget{margin:18px auto}
+    .article-inline-ad:empty{display:none}
+    .article-inline-ad{max-width:100%;margin:26px 0;min-height:0;text-align:center;overflow:hidden}
+    .article-inline-ad ins,.article-inline-ad iframe,.article-inline-ad img{max-width:100%}
+    .ad-area .widget-content{max-width:100%;overflow:hidden;text-align:center}
+    .ad-area .widget-content img,.ad-area iframe{max-width:100%}
+    .article-meta{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;color:var(--muted);font-size:13px;margin:12px 0 22px}
+    .article-labels{display:flex;flex-wrap:wrap;gap:7px;margin:24px 0}
+    .article-labels a{background:#eaf8f1;border:1px solid #d8f0e4;color:var(--brand-dark);border-radius:999px;padding:5px 10px;font-size:12px}
+    .article-body{overflow-wrap:anywhere}
+    .article-body h2,.article-body h3{line-height:1.6;margin:1.5em 0 .6em}
+    .article-body p{margin:0 0 1.15em}
+    .article-body ul,.article-body ol{padding-inline-start:1.6em}
+    .article-body blockquote{border-inline-start:4px solid var(--brand);margin:1.4em 0;padding:10px 16px;background:var(--soft);border-radius:8px}
+    .article-body table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse}
+    .article-body th,.article-body td{border:1px solid var(--line);padding:8px 10px}
+    .article-body iframe{max-width:100%}
+    .page-heading{padding:24px 0 8px}
+    .page-heading h1{font-size:clamp(24px,3.5vw,34px);margin:0}
+    .page-heading p{margin:7px 0 0;color:var(--muted)}
+    .post-card .post-thumb img{object-fit:cover;aspect-ratio:4/3}
+    .post-card .post-thumb:focus-visible,.post-card a:focus-visible,.mainnav a:focus-visible,.mainnav button:focus-visible{outline:3px solid #f5c451;outline-offset:2px}
+    body#layout .ad-area{min-height:82px;border:1px dashed #8aa99b;background:#f3faf6;padding:12px}
+    body#layout .ad-area:before{content:attr(data-ad-label);display:block;color:#087c59;font-size:13px;font-weight:700;text-align:center}
+    @media(max-width:680px){.article{margin:18px auto}.article-body{font-size:16px}.article-meta{font-size:12px}.ad-area{margin:12px auto}.page-heading{padding-top:18px}}
+    @media(max-width:900px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.trending-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content-layout{grid-template-columns:minmax(0,1fr) 240px}.hero-box{grid-template-columns:1fr}.hero-symbols{max-width:520px}}
+    @media(max-width:680px){.container{width:min(100% - 22px,1180px)}.masthead{padding:14px 0}.masthead-inner{align-items:flex-start;flex-direction:column;gap:13px}.brand{font-size:25px}.brand-mark{width:40px;height:40px}.search{width:100%}.navinner{display:block}.menu-toggle{display:block;width:100%;text-align:right}.mainnav{display:none;flex-direction:column;align-items:stretch;padding-bottom:8px}.mainnav.open{display:flex}.mainnav>a,.navitem>button{width:100%;text-align:right;padding:10px 14px}.navitem{width:100%}.dropdown{position:static;box-shadow:none;border-radius:10px;margin:0 8px 8px;max-height:300px}.navitem:hover .dropdown{display:none}.navitem.expanded .dropdown{display:block}.hero{padding-top:18px}.hero-box{padding:20px;border-radius:16px}.hero-symbols{grid-template-columns:repeat(3,1fr);gap:7px}.symbol{padding:12px 5px}.symbol .ico{font-size:22px}.symbol span:last-child{font-size:11px}.section-head h2{font-size:20px}.category-grid{grid-template-columns:1fr;gap:10px}.trending-grid{grid-template-columns:1fr 1fr;gap:9px}.trend-card{padding:12px;min-height:unset}.trend-card h3{font-size:14px}.content-layout{grid-template-columns:1fr}.sidebar{display:none}.post-card{grid-template-columns:105px minmax(0,1fr);gap:12px}.post-thumb{min-height:95px}.post-card h3{font-size:16px}.post-card p{font-size:13px}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}}
+  ]]></b:skin>
+</head>
+<body>
+  <div class='topline'><div class='container'>
+    <div class='toplinks'>
+      <a href='/search/label/أجدد المقالات'>أجدد المقالات</a>
+      <a href='/search/label/الأكثر رواجاً'>الأكثر رواجاً</a>
+      <a href='#categories'>التصنيفات</a>
+      <a href='#about'>عن الموقع</a>
+      <a href='#contact'>اتصل بنا</a>
+    </div>
+  </div></div>
+  <header class='masthead'><div class='container masthead-inner'>
+    <a class='brand' expr:href='data:blog.homepageUrl'><span class='brand-mark'>م</span><span>موضوع <span class='tagline'>معرفة تثري حياتك</span></span></a>
+    <form action='/search' class='search' method='get' role='search'><input name='q' placeholder='ابحث هنا...' type='search'/><button type='submit'>بحث</button></form>
+  </div></header>
+  <div class='navwrap'><div class='container navinner'>
+    <button aria-label='فتح القائمة' class='menu-toggle' onclick='document.getElementById("mainnav").classList.toggle("open")' type='button'>☰　الأقسام</button>
+    <nav class='mainnav' id='mainnav'>
+      <a expr:href='data:blog.homepageUrl'>الرئيسية</a>
+      <div class='navitem'><button onclick='this.parentNode.classList.toggle("expanded")' type='button'>🍲 فن الطهي ▾</button><div class='dropdown'><a href='/search/label/أطباق رئيسية'>أطباق رئيسية</a><a href='/search/label/أطباق صحية'>أطباق صحية</a><a href='/search/label/أكلات سريعة'>أكلات سريعة</a><a href='/search/label/حلويات'>حلويات</a><a href='/search/label/عصائر'>عصائر</a></div></div>
+      <div class='navitem'><button onclick='this.parentNode.classList.toggle("expanded")' type='button'>🌍 حول العالم ▾</button><div class='dropdown'><a href='/search/label/مدن وبلدان'>مدن وبلدان</a><a href='/search/label/مدن عربية'>مدن عربية</a><a href='/search/label/معالم سياحية'>معالم سياحية</a></div></div>
+      <div class='navitem'><button onclick='this.parentNode.classList.toggle("expanded")' type='button'>✨ العناية بالذات ▾</button><div class='dropdown'><a href='/search/label/العناية بالبشرة'>العناية بالبشرة</a><a href='/search/label/العناية بالشعر'>العناية بالشعر</a><a href='/search/label/جمال'>جمال</a></div></div>
+      <a href='/search/label/صحة'>❤️ صحة</a><a href='/search/label/تقنية'>💻 تقنية</a><a href='/search/label/تعليم'>📚 تعليم</a><a href='/search/label/إسلام'>☪ إسلام</a>
+      <div class='navitem'><button onclick='this.parentNode.classList.toggle("expanded")' type='button'>📚 المزيد ▾</button><div class='dropdown'><a href='/search/label/مال وأعمال'>مال وأعمال</a><a href='/search/label/سؤال وجواب'>سؤال وجواب</a><a href='/search/label/وزن ورشاقة'>وزن ورشاقة</a><a href='/search/label/الحياة والمجتمع'>الحياة والمجتمع</a><a href='/search/label/الحمل والولادة'>الحمل والولادة</a><a href='/search/label/تسلية وألعاب'>تسلية وألعاب</a><a href='/search/label/رياضة'>رياضة</a><a href='/search/label/الآداب'>الآداب</a><a href='/search/label/حكم وأقوال'>حكم وأقوال</a><a href='/search/label/حيوانات ونباتات'>حيوانات ونباتات</a><a href='/search/label/قصص وحكايات'>قصص وحكايات</a><a href='/search/label/فنون'>فنون</a></div></div>
+    </nav>
+  </div></div>
+  <div class='container ad-area' data-ad-label='مساحة إعلانية أعلى المحتوى' aria-label='مساحة إعلانية أعلى المحتوى'><b:section id='ad-top' maxwidgets='1' showaddelement='yes'/></div>
+  <b:if cond='data:blog.url == data:blog.homepageUrl'>
+    <section class='hero'><div class='container'><div class='hero-box'>
+      <div><div class='eyebrow'>أهلاً بك في موضوع</div><h1>المعرفة تبدأ من هنا</h1><p>اكتشف مقالات وأفكاراً ومعلومات في مجالات الحياة المختلفة.</p><form action='/search' class='search hero-search' method='get'><input name='q' placeholder='ما الذي تريد معرفته؟' type='search'/><button type='submit'>ابحث</button></form></div>
+      <div class='hero-symbols'><a class='symbol' href='/search/label/فن الطهي'><span class='ico'>🍲</span><span>فن الطهي</span></a><a class='symbol' href='/search/label/صحة'><span class='ico'>❤️</span><span>الصحة</span></a><a class='symbol' href='/search/label/تعليم'><span class='ico'>📚</span><span>التعليم</span></a><a class='symbol' href='/search/label/حول العالم'><span class='ico'>🌍</span><span>حول العالم</span></a><a class='symbol' href='/search/label/تقنية'><span class='ico'>💻</span><span>التقنية</span></a><a class='symbol' href='/search/label/تغذية'><span class='ico'>🌿</span><span>التغذية</span></a></div>
+    </div></div></section>
+    <section class='section'><div class='container'><div class='section-head'><h2>متداول</h2><span class='muted'>موضوعات مختارة</span></div><div class='trending-grid'>
+      <a class='trend-card' href='/search/label/الحياة والمجتمع'><span class='category'>الحياة والمجتمع</span><h3>موضوعات تهم حياتك اليومية</h3><span class='muted'>اقرأ المزيد ←</span></a>
+      <a class='trend-card' href='/search/label/أكلات خفيفة'><span class='category'>أكلات خفيفة</span><h3>وصفات وأفكار سهلة للمطبخ</h3><span class='muted'>اقرأ المزيد ←</span></a>
+      <a class='trend-card' href='/search/label/تغذية'><span class='category'>تغذية</span><h3>معلومات عن الغذاء والصحة</h3><span class='muted'>اقرأ المزيد ←</span></a>
+      <a class='trend-card' href='/search/label/العناية بالذات'><span class='category'>العناية بالذات</span><h3>نصائح للعناية بنفسك</h3><span class='muted'>اقرأ المزيد ←</span></a>
+    </div></div></section>
+    <section class='section' id='categories'><div class='container'><div class='section-head'><h2>تصنيفات موضوع</h2><span class='muted'>تصفح حسب اهتمامك</span></div>
+      <div class='category-grid'>
+        <div class='category-card'><div class='category-title'><span class='ico'>🍲</span>فن الطهي</div><div class='subcategory-list'><a href='/search/label/أطباق رئيسية'>أطباق رئيسية</a><a href='/search/label/أطباق جانبية'>أطباق جانبية</a><a href='/search/label/أطباق شرقية'>أطباق شرقية</a><a href='/search/label/أطباق شامية'>أطباق شامية</a><a href='/search/label/أطباق خليجية'>أطباق خليجية</a><a href='/search/label/أطباق صحية'>أطباق صحية</a><a href='/search/label/أطباق الأرز'>أطباق الأرز</a><a href='/search/label/أطباق الدجاج'>أطباق الدجاج</a><a href='/search/label/أطباق اللحوم'>أطباق اللحوم</a><a href='/search/label/طبخ عربي'>طبخ عربي</a><a href='/search/label/أكلات سريعة'>أكلات سريعة</a><a href='/search/label/أكلات خفيفة'>أكلات خفيفة</a><a href='/search/label/أكلات منوعة'>أكلات منوعة</a><a href='/search/label/مأكولات بحرية'>مأكولات بحرية</a><a href='/search/label/المعكرونة'>المعكرونة</a><a href='/search/label/المحاشي'>المحاشي</a><a href='/search/label/مقبلات وسلطات'>مقبلات وسلطات</a><a href='/search/label/سلطات'>سلطات</a><a href='/search/label/عجائن ومخبوزات'>عجائن ومخبوزات</a><a href='/search/label/شوربات'>شوربات</a><a href='/search/label/المخللات'>المخللات</a><a href='/search/label/أساسيات فن الطهي'>أساسيات فن الطهي</a><a href='/search/label/حفظ الأطعمة'>حفظ الأطعمة</a><a href='/search/label/تزيين الأطباق'>تزيين الأطباق</a><a href='/search/label/البهارات'>البهارات</a><a href='/search/label/صلصات'>صلصات</a><a href='/search/label/الشوفان'>الشوفان</a><a href='/search/label/مشروبات باردة وساخنة'>مشروبات باردة وساخنة</a><a href='/search/label/عصائر'>عصائر</a><a href='/search/label/حلو عالمي'>حلو عالمي</a><a href='/search/label/حلو عربي'>حلو عربي</a><a href='/search/label/حلويات رمضان'>حلويات رمضان</a><a href='/search/label/حلويات باردة'>حلويات باردة</a><a href='/search/label/حلويات القطر'>حلويات القطر</a><a href='/search/label/كيك'>كيك</a><a href='/search/label/البان كيك والكريب'>البان كيك والكريب</a><a href='/search/label/منوعات في فن الطهي'>منوعات في فن الطهي</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>🌍</span>حول العالم</div><div class='subcategory-list'><a href='/search/label/مدن وبلدان'>مدن وبلدان</a><a href='/search/label/مدن عربية'>مدن عربية</a><a href='/search/label/مدن أجنبية'>مدن أجنبية</a><a href='/search/label/مدن ومحافظات'>مدن ومحافظات</a><a href='/search/label/عواصم'>عواصم</a><a href='/search/label/دول أجنبية'>دول أجنبية</a><a href='/search/label/دول عربية'>دول عربية</a><a href='/search/label/دول قارة آسيا'>دول قارة آسيا</a><a href='/search/label/معالم سياحية'>معالم سياحية</a><a href='/search/label/معالم وآثار'>معالم وآثار</a><a href='/search/label/الكثافة السكانية'>الكثافة السكانية</a><a href='/search/label/مساحات الدول'>مساحات الدول</a><a href='/search/label/أنظمة دولية'>أنظمة دولية</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>✨</span>العناية بالذات</div><div class='subcategory-list'><a href='/search/label/العناية بالجسم'>العناية بالجسم</a><a href='/search/label/العناية بالقدم'>العناية بالقدم</a><a href='/search/label/العناية باليدين'>العناية باليدين</a><a href='/search/label/العناية بالأظافر'>العناية بالأظافر</a><a href='/search/label/العناية بالفم والأسنان'>العناية بالفم والأسنان</a><a href='/search/label/العناية بالوجه'>العناية بالوجه</a><a href='/search/label/العناية بالبشرة'>العناية بالبشرة</a><a href='/search/label/صحة البشرة'>صحة البشرة</a><a href='/search/label/تنظيف وتقشير البشرة'>تنظيف وتقشير البشرة</a><a href='/search/label/تفتيح لون البشرة'>تفتيح لون البشرة</a><a href='/search/label/الهالات والرؤوس السوداء'>الهالات والرؤوس السوداء</a><a href='/search/label/فوائد الزيوت للبشرة'>فوائد الزيوت للبشرة</a><a href='/search/label/حبوب البشرة'>حبوب البشرة</a><a href='/search/label/العناية بالشعر'>العناية بالشعر</a><a href='/search/label/العناية بفروة الرأس'>العناية بفروة الرأس</a><a href='/search/label/العناية بالشعر التالف'>العناية بالشعر التالف</a><a href='/search/label/العناية بالشعر المصبوغ'>العناية بالشعر المصبوغ</a><a href='/search/label/صبغات الشعر'>صبغات الشعر</a><a href='/search/label/صحة الشعر'>صحة الشعر</a><a href='/search/label/مشاكل تساقط الشعر'>مشاكل تساقط الشعر</a><a href='/search/label/وصفات تكثيف الشعر'>وصفات تكثيف الشعر</a><a href='/search/label/وصفات تطويل الشعر'>وصفات تطويل الشعر</a><a href='/search/label/فوائد الزيوت للشعر'>فوائد الزيوت للشعر</a><a href='/search/label/تجميل ومكياج'>تجميل ومكياج</a><a href='/search/label/جمال'>جمال</a><a href='/search/label/حليّ ومجوهرات'>حليّ ومجوهرات</a><a href='/search/label/أزياء وملابس'>أزياء وملابس</a><a href='/search/label/حب الشباب'>حب الشباب</a><a href='/search/label/منوعات في العناية بالذات'>منوعات في العناية بالذات</a><a href='/search/label/منوعات في الجمال والأناقة'>منوعات في الجمال والأناقة</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>💼</span>مال وأعمال</div><div class='subcategory-list'><a href='/search/label/اقتصاد مالي'>اقتصاد مالي</a><a href='/search/label/عملات'>عملات</a><a href='/search/label/صناعات'>صناعات</a><a href='/search/label/عقارات'>عقارات</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>❓</span>سؤال وجواب</div><div class='subcategory-list'><a href='/search/label/أين تقع دول العالم العربي'>أين تقع دول العالم العربي</a><a href='/search/label/أين تقع دول العالم الأجنبي'>أين تقع دول العالم الأجنبي</a><a href='/search/label/أين تقع مدن العالم العربية'>أين تقع مدن العالم العربية</a><a href='/search/label/أين تقع مدن العالم الأجنبية'>أين تقع مدن العالم الأجنبية</a><a href='/search/label/كيف أهتم بصحة بشرتي'>كيف أهتم بصحة بشرتي</a><a href='/search/label/كيف أهتم بصحة شعري'>كيف أهتم بصحة شعري</a><a href='/search/label/كيف أهتم بمنزلي'>كيف أهتم بمنزلي</a><a href='/search/label/كيف أتعامل مع طفلي'>كيف أتعامل مع طفلي</a><a href='/search/label/كيف أطور مهاراتي'>كيف أطور مهاراتي</a><a href='/search/label/ما هي فوائد النباتات'>ما هي فوائد النباتات</a><a href='/search/label/أجيب'>أجيب</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>💻</span>تقنية</div><div class='subcategory-list'><a href='/search/label/كمبيوتر'>كمبيوتر</a><a href='/search/label/موبايل'>موبايل</a><a href='/search/label/تقنيات منوعة'>تقنيات منوعة</a><a href='/search/label/إنترنت'>إنترنت</a><a href='/search/label/مواقع التواصل الاجتماعي'>مواقع التواصل الاجتماعي</a><a href='/search/label/برمجة وتصميم المواقع'>برمجة وتصميم المواقع</a><a href='/search/label/تطبيقات إلكترونية'>تطبيقات إلكترونية</a><a href='/search/label/برامج إلكترونية'>برامج إلكترونية</a><a href='/search/label/أسئلة تقنية'>أسئلة تقنية</a><a href='/search/label/منوعات تقنية'>منوعات تقنية</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>🌿</span>علوم الأرض</div><div class='subcategory-list'><a href='/search/label/بحار ومحيطات'>بحار ومحيطات</a><a href='/search/label/أنهار وبحيرات'>أنهار وبحيرات</a><a href='/search/label/جبال ووديان'>جبال ووديان</a><a href='/search/label/زراعة الخضراوات والفواكه'>زراعة الخضراوات والفواكه</a><a href='/search/label/زراعة'>زراعة</a><a href='/search/label/ظواهر طبيعية'>ظواهر طبيعية</a><a href='/search/label/ثروات طبيعية'>ثروات طبيعية</a><a href='/search/label/التلوث البيئي'>التلوث البيئي</a><a href='/search/label/المجموعة الشمسية'>المجموعة الشمسية</a><a href='/search/label/منوعات عن الطبيعة'>منوعات عن الطبيعة</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>🥗</span>تغذية</div><div class='subcategory-list'><a href='/search/label/فيتامينات ومعادن'>فيتامينات ومعادن</a><a href='/search/label/مصادر الفيتامينات والمعادن'>مصادر الفيتامينات والمعادن</a><a href='/search/label/فوائد الفيتامينات والمعادن'>فوائد الفيتامينات والمعادن</a><a href='/search/label/نقص الفيتامينات والمعادن'>نقص الفيتامينات والمعادن</a><a href='/search/label/الفاكهة والخضراوات'>الفاكهة والخضراوات</a><a href='/search/label/فوائد الفواكه'>فوائد الفواكه</a><a href='/search/label/فوائد الخضروات'>فوائد الخضروات</a><a href='/search/label/فوائد الأعشاب'>فوائد الأعشاب</a><a href='/search/label/التداوي بالأعشاب'>التداوي بالأعشاب</a><a href='/search/label/فوائد البقوليات'>فوائد البقوليات</a><a href='/search/label/فوائد الحبوب'>فوائد الحبوب</a><a href='/search/label/فوائد البذور'>فوائد البذور</a><a href='/search/label/فوائد الزيوت'>فوائد الزيوت</a><a href='/search/label/الزيوت النباتية'>الزيوت النباتية</a><a href='/search/label/معلومات غذائية'>معلومات غذائية</a><a href='/search/label/منتجات غذائية'>منتجات غذائية</a><a href='/search/label/حليب وأجبان'>حليب وأجبان</a><a href='/search/label/الشاي والقهوة'>الشاي والقهوة</a><a href='/search/label/ماء الورد'>ماء الورد</a><a href='/search/label/العسل'>العسل</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>☪</span>إسلام</div><div class='subcategory-list'><a href='/search/label/القرآن الكريم'>القرآن الكريم</a><a href='/search/label/أحاديث'>أحاديث</a><a href='/search/label/تأملات قرآنية'>تأملات قرآنية</a><a href='/search/label/عبادات'>عبادات</a><a href='/search/label/وضوء وصلاة'>وضوء وصلاة</a><a href='/search/label/وضوء وطهارة'>وضوء وطهارة</a><a href='/search/label/فروض وسنن'>فروض وسنن</a><a href='/search/label/النوافل'>النوافل</a><a href='/search/label/الحج والعمرة'>الحج والعمرة</a><a href='/search/label/أذكار'>أذكار</a><a href='/search/label/شهر رمضان'>شهر رمضان</a><a href='/search/label/أدعية - الجزء الأول'>أدعية - الجزء الأول</a><a href='/search/label/أدعية - الجزء الثاني'>أدعية - الجزء الثاني</a><a href='/search/label/أدعية - الجزء الثالث'>أدعية - الجزء الثالث</a><a href='/search/label/أدعية - الجزء الرابع'>أدعية - الجزء الرابع</a><a href='/search/label/أحكام شرعية'>أحكام شرعية</a><a href='/search/label/حساب الزكاة'>حساب الزكاة</a><a href='/search/label/التاريخ الإسلامي'>التاريخ الإسلامي</a><a href='/search/label/معارك وغزوات'>معارك وغزوات</a><a href='/search/label/معالم إسلامية'>معالم إسلامية</a><a href='/search/label/السيرة النبوية'>السيرة النبوية</a><a href='/search/label/حياة الرسول والصحابة'>حياة الرسول والصحابة</a><a href='/search/label/رسل وأنبياء'>رسل وأنبياء</a><a href='/search/label/الصحابة والتابعون'>الصحابة والتابعون</a><a href='/search/label/مواضيع دينية متفرقة'>مواضيع دينية متفرقة</a><a href='/search/label/الأسرة في الإسلام'>الأسرة في الإسلام</a><a href='/search/label/أخلاق إسلامية'>أخلاق إسلامية</a><a href='/search/label/حكم ومواعظ دينية'>حكم ومواعظ دينية</a><a href='/search/label/مصطلحات إسلامية'>مصطلحات إسلامية</a><a href='/search/label/تعريفات إسلامية'>تعريفات إسلامية</a><a href='/search/label/معتقدات إسلامية'>معتقدات إسلامية</a><a href='/search/label/معلومات إسلامية'>معلومات إسلامية</a><a href='/search/label/ثقافة إسلامية'>ثقافة إسلامية</a><a href='/search/label/أسئلة دينية'>أسئلة دينية</a><a href='/search/label/منوعات إسلامية'>منوعات إسلامية</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>💞</span>الزواج والحب</div><div class='subcategory-list'><a href='/search/label/أقوال في الحب'>أقوال في الحب</a><a href='/search/label/نصائح للأحبة'>نصائح للأحبة</a><a href='/search/label/أسئلة للأحبة'>أسئلة للأحبة</a><a href='/search/label/منوعات للأحبة'>منوعات للأحبة</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>🐾</span>حيوانات ونباتات</div><div class='subcategory-list'><a href='/search/label/حيوانات وطيور'>حيوانات وطيور</a><a href='/search/label/حيوانات أليفة'>حيوانات أليفة</a><a href='/search/label/حيوانات مفترسة'>حيوانات مفترسة</a><a href='/search/label/طيور'>طيور</a><a href='/search/label/زواحف'>زواحف</a><a href='/search/label/أسماك وبرمائيات'>أسماك وبرمائيات</a><a href='/search/label/حشرات وكائنات دقيقة'>حشرات وكائنات دقيقة</a><a href='/search/label/أعشاب ونباتات برية'>أعشاب ونباتات برية</a><a href='/search/label/نباتات'>نباتات</a><a href='/search/label/أزهار وورود'>أزهار وورود</a><a href='/search/label/الغطاء النباتي'>الغطاء النباتي</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>🎓</span>تعليم</div><div class='subcategory-list'><a href='/search/label/العلوم الإنسانية'>العلوم الإنسانية</a><a href='/search/label/علم النفس'>علم النفس</a><a href='/search/label/علوم'>علوم</a><a href='/search/label/كيمياء'>كيمياء</a><a href='/search/label/فيزياء'>فيزياء</a><a href='/search/label/رياضيات'>رياضيات</a><a href='/search/label/جسم الإنسان'>جسم الإنسان</a><a href='/search/label/أسئلة علمية'>أسئلة علمية</a><a href='/search/label/تاريخ'>تاريخ</a><a href='/search/label/تاريخ الدول'>تاريخ الدول</a><a href='/search/label/شخصيات تاريخية'>شخصيات تاريخية</a><a href='/search/label/ثورات وحروب'>ثورات وحروب</a><a href='/search/label/حضارات'>حضارات</a><a href='/search/label/جغرافيا'>جغرافيا</a><a href='/search/label/لغة'>لغة</a><a href='/search/label/قواعد اللغة العربية'>قواعد اللغة العربية</a><a href='/search/label/ثقافة'>ثقافة</a><a href='/search/label/تنمية الذات'>تنمية الذات</a><a href='/search/label/تنمية المهارات الشخصية'>تنمية المهارات الشخصية</a><a href='/search/label/تنمية الشخصية والقدرات'>تنمية الشخصية والقدرات</a><a href='/search/label/تنمية الذكاء'>تنمية الذكاء</a><a href='/search/label/مهارات الحياة'>مهارات الحياة</a><a href='/search/label/مهارات إدارية'>مهارات إدارية</a><a href='/search/label/مهارات دراسية'>مهارات دراسية</a><a href='/search/label/تخصصات جامعية'>تخصصات جامعية</a><a href='/search/label/أساليب التعليم'>أساليب التعليم</a><a href='/search/label/مبادئ التعليم'>مبادئ التعليم</a><a href='/search/label/اختراعات واكتشافات'>اختراعات واكتشافات</a><a href='/search/label/دراسات وأبحاث'>دراسات وأبحاث</a><a href='/search/label/البحث العلمي'>البحث العلمي</a><a href='/search/label/علماء'>علماء</a><a href='/search/label/تعريفات وقوانين علمية'>تعريفات وقوانين علمية</a><a href='/search/label/تعريفات منوعة'>تعريفات منوعة</a><a href='/search/label/مصطلحات ومعاني'>مصطلحات ومعاني</a><a href='/search/label/مفاهيم عامة'>مفاهيم عامة</a><a href='/search/label/أعلام'>أعلام</a><a href='/search/label/ملوك وأمراء'>ملوك وأمراء</a><a href='/search/label/مهارات فردية'>مهارات فردية</a><a href='/search/label/مهارات التواصل'>مهارات التواصل</a><a href='/search/label/منوع'>منوع</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>👨‍👩‍👧</span>الأسرة</div><div class='subcategory-list'><a href='/search/label/التدبير المنزلي'>التدبير المنزلي</a><a href='/search/label/شؤون منزلية'>شؤون منزلية</a><a href='/search/label/علاقات أسرية'>علاقات أسرية</a><a href='/search/label/معاني الأسماء'>معاني الأسماء</a><a href='/search/label/صناعات منزلية'>صناعات منزلية</a><a href='/search/label/التخلص من الحشرات'>التخلص من الحشرات</a><a href='/search/label/منوعات أسرة وتسلية'>منوعات أسرة وتسلية</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>⚖️</span>وزن ورشاقة</div><div class='subcategory-list'><a href='/search/label/رجيم وأنظمة غذائية'>رجيم وأنظمة غذائية</a><a href='/search/label/الحميات الغذائية'>الحميات الغذائية</a><a href='/search/label/طرق حرق الدهون'>طرق حرق الدهون</a><a href='/search/label/طرق زيادة الوزن'>طرق زيادة الوزن</a><a href='/search/label/طرق تنزيل الوزن'>طرق تنزيل الوزن</a><a href='/search/label/تخفيف الوزن'>تخفيف الوزن</a><a href='/search/label/التخلص من السمنة'>التخلص من السمنة</a><a href='/search/label/التخلص من الكرش'>التخلص من الكرش</a><a href='/search/label/منوعات في الوزن والرشاقة'>منوعات في الوزن والرشاقة</a><a href='/search/label/كيف أحافظ على وزني'>كيف أحافظ على وزني</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>🤝</span>الحياة والمجتمع</div><div class='subcategory-list'><a href='/search/label/عادات وتقاليد'>عادات وتقاليد</a><a href='/search/label/ظواهر اجتماعية'>ظواهر اجتماعية</a><a href='/search/label/قضايا مجتمعية'>قضايا مجتمعية</a><a href='/search/label/العنف الأسري'>العنف الأسري</a><a href='/search/label/التعامل مع المراهقين'>التعامل مع المراهقين</a><a href='/search/label/أضرار المخدرات'>أضرار المخدرات</a><a href='/search/label/أضرار التدخين'>أضرار التدخين</a><a href='/search/label/معلومات عامة'>معلومات عامة</a><a href='/search/label/مناسبات عربية وعالمية'>مناسبات عربية وعالمية</a><a href='/search/label/وسائل النقل'>وسائل النقل</a><a href='/search/label/أحلام'>أحلام</a><a href='/search/label/منوعات اجتماعية'>منوعات اجتماعية</a><a href='/search/label/الفعاليات الترفيهية في الدول'>الفعاليات الترفيهية في الدول</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>🩺</span>صحة</div><div class='subcategory-list'><a href='/search/label/طب عام'>طب عام</a><a href='/search/label/باطني وقناة هضمية'>باطني وقناة هضمية</a><a href='/search/label/نسائية وتوليد'>نسائية وتوليد</a><a href='/search/label/أنف وأذن وحنجرة'>أنف وأذن وحنجرة</a><a href='/search/label/كلى ومسالك بولية'>كلى ومسالك بولية</a><a href='/search/label/عظام وروماتيزم'>عظام وروماتيزم</a><a href='/search/label/أطفال'>أطفال</a><a href='/search/label/أعصاب'>أعصاب</a><a href='/search/label/عيون'>عيون</a><a href='/search/label/غدد'>غدد</a><a href='/search/label/مرض السكري'>مرض السكري</a><a href='/search/label/ضغط الدم'>ضغط الدم</a><a href='/search/label/السرطان'>السرطان</a><a href='/search/label/أمراض الجهاز الهضمي'>أمراض الجهاز الهضمي</a><a href='/search/label/أمراض الجهاز التنفسي'>أمراض الجهاز التنفسي</a><a href='/search/label/أمراض الأطفال والمراهقين'>أمراض الأطفال والمراهقين</a><a href='/search/label/أمراض القلب والشرايين'>أمراض القلب والشرايين</a><a href='/search/label/أمراض الأوعية الدموية'>أمراض الأوعية الدموية</a><a href='/search/label/أمراض الكبد والمرارة'>أمراض الكبد والمرارة</a><a href='/search/label/أمراض صدرية'>أمراض صدرية</a><a href='/search/label/أمراض الحساسية'>أمراض الحساسية</a><a href='/search/label/أمراض معدية'>أمراض معدية</a><a href='/search/label/أمراض الدم'>أمراض الدم</a><a href='/search/label/أمراض جلدية'>أمراض جلدية</a><a href='/search/label/أمراض القولون'>أمراض القولون</a><a href='/search/label/أمراض القدم'>أمراض القدم</a><a href='/search/label/آلام الظهر والرقبة'>آلام الظهر والرقبة</a><a href='/search/label/آلام الرأس'>آلام الرأس</a><a href='/search/label/اضطرابات القناة الهضمية'>اضطرابات القناة الهضمية</a><a href='/search/label/اضطرابات النوم وحلولها'>اضطرابات النوم وحلولها</a><a href='/search/label/اضطرابات نفسية'>اضطرابات نفسية</a><a href='/search/label/صحة نفسية'>صحة نفسية</a><a href='/search/label/صحة الفم والأسنان'>صحة الفم والأسنان</a><a href='/search/label/الصحة الجنسية'>الصحة الجنسية</a><a href='/search/label/الحمى وارتفاع الحرارة'>الحمى وارتفاع الحرارة</a><a href='/search/label/المتلازمات'>المتلازمات</a><a href='/search/label/جراحة عامة'>جراحة عامة</a><a href='/search/label/تحاليل طبية'>تحاليل طبية</a><a href='/search/label/الحروق'>الحروق</a><a href='/search/label/طب بديل'>طب بديل</a><a href='/search/label/معلومات ونصائح طبية'>معلومات ونصائح طبية</a><a href='/search/label/مواضيع طبية متفرقة'>مواضيع طبية متفرقة</a><a href='/search/label/مصطلحات طبية'>مصطلحات طبية</a><a href='/search/label/التخلص من التعرق'>التخلص من التعرق</a><a href='/search/label/عادات صحية'>عادات صحية</a><a href='/search/label/منوعات طبية'>منوعات طبية</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>🤰</span>الحمل والولادة</div><div class='subcategory-list'><a href='/search/label/أمراض الحمل والولادة'>أمراض الحمل والولادة</a><a href='/search/label/مراحل الحمل'>مراحل الحمل</a><a href='/search/label/مراحل نمو الجنين'>مراحل نمو الجنين</a><a href='/search/label/صحة الحامل'>صحة الحامل</a><a href='/search/label/صحة الجنين'>صحة الجنين</a><a href='/search/label/تغذية الحامل'>تغذية الحامل</a><a href='/search/label/تغذية الطفل'>تغذية الطفل</a><a href='/search/label/العناية بالطفل'>العناية بالطفل</a><a href='/search/label/العناية بحديثي الولادة'>العناية بحديثي الولادة</a><a href='/search/label/كيف أهتم بحملي'>كيف أهتم بحملي</a><a href='/search/label/كيف أهتم بطفلي'>كيف أهتم بطفلي</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>🎮</span>تسلية وألعاب</div><div class='subcategory-list'><a href='/search/label/تحليل الشخصية'>تحليل الشخصية</a><a href='/search/label/شخصية وأبراج'>شخصية وأبراج</a><a href='/search/label/صفات الأبراج'>صفات الأبراج</a><a href='/search/label/الألوان ودلالاتها'>الألوان ودلالاتها</a><a href='/search/label/نكت ورسائل'>نكت ورسائل</a><a href='/search/label/متفرقات'>متفرقات</a><a href='/search/label/منوعات تسلية وألعاب'>منوعات تسلية وألعاب</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>⚽</span>رياضة</div><div class='subcategory-list'><a href='/search/label/كرة القدم'>كرة القدم</a><a href='/search/label/تمارين رياضية'>تمارين رياضية</a><a href='/search/label/كمال الأجسام'>كمال الأجسام</a><a href='/search/label/مهارات الصيد'>مهارات الصيد</a><a href='/search/label/رياضات منوعة'>رياضات منوعة</a><a href='/search/label/رياضات أخرى'>رياضات أخرى</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>📖</span>الآداب</div><div class='subcategory-list'><a href='/search/label/أدباء وشعراء'>أدباء وشعراء</a><a href='/search/label/أشعار منوعة'>أشعار منوعة</a><a href='/search/label/أشعار حب'>أشعار حب</a><a href='/search/label/شعر عربي'>شعر عربي</a><a href='/search/label/شعر مديح ورثاء'>شعر مديح ورثاء</a><a href='/search/label/شعر غزل'>شعر غزل</a><a href='/search/label/شعر حزين'>شعر حزين</a><a href='/search/label/فنون أدبية'>فنون أدبية</a><a href='/search/label/فن الكتابة والتعبير'>فن الكتابة والتعبير</a><a href='/search/label/كتب ومؤلفات'>كتب ومؤلفات</a><a href='/search/label/متفرقات أدبية'>متفرقات أدبية</a><a href='/search/label/منوعات أدبية'>منوعات أدبية</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>💬</span>حكم وأقوال</div><div class='subcategory-list'><a href='/search/label/أقوال'>أقوال</a><a href='/search/label/حكم'>حكم</a><a href='/search/label/حكم وأقوال في الحياة'>حكم وأقوال في الحياة</a><a href='/search/label/حكم وأقوال في الصداقة'>حكم وأقوال في الصداقة</a><a href='/search/label/حكم في الحب'>حكم في الحب</a><a href='/search/label/حكم المشاهير'>حكم المشاهير</a><a href='/search/label/حكم متنوعة'>حكم متنوعة</a><a href='/search/label/كلمات متنوعة'>كلمات متنوعة</a><a href='/search/label/كلمات معبرة'>كلمات معبرة</a><a href='/search/label/عبارات الصباح'>عبارات الصباح</a><a href='/search/label/عبارات عن الأسرة'>عبارات عن الأسرة</a><a href='/search/label/عبارات جميلة'>عبارات جميلة</a><a href='/search/label/عبارات حزينة'>عبارات حزينة</a><a href='/search/label/عبارات عتاب'>عبارات عتاب</a><a href='/search/label/عبارات تهاني'>عبارات تهاني</a><a href='/search/label/خواطر'>خواطر</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>🎨</span>فنون</div><div class='subcategory-list'><a href='/search/label/أفلام ومسلسلات'>أفلام ومسلسلات</a><a href='/search/label/فنانين وإعلاميين'>فنانين وإعلاميين</a><a href='/search/label/آلات موسيقية'>آلات موسيقية</a><a href='/search/label/أغاني'>أغاني</a><a href='/search/label/أناشيد'>أناشيد</a><a href='/search/label/فنون منوعة'>فنون منوعة</a><a href='/search/label/فن الرسم'>فن الرسم</a><a href='/search/label/منوعات فنية'>منوعات فنية</a></div></div>
+        <div class='category-card'><div class='category-title'><span class='ico'>📜</span>قصص وحكايات</div><div class='subcategory-list'><a href='/search/label/قصص عالمية'>قصص عالمية</a><a href='/search/label/قصص عربية'>قصص عربية</a><a href='/search/label/قصص دينية'>قصص دينية</a></div></div>
+      </div>
+    </div></section>
+  </b:if>
+  <main class='container'>
+    <b:if cond='data:blog.pageType == "item"'>
+      <div class='container ad-area' data-ad-label='مساحة إعلانية قبل المقال' aria-label='مساحة إعلانية قبل المقال'><b:section id='article-ad-before' maxwidgets='1' showaddelement='yes'/></div>
+      <div class='article'>
+        <b:section id='article-top' maxwidgets='1' showaddelement='yes'/>
+      </div>
+    </b:if>
+    <div class='content-layout' id='blog-content-layout'>
+      <section class='posts'>
+        <b:if cond='data:blog.pageType != "item"'>
+          <div class='page-heading'><h1><b:if cond='data:blog.searchLabel'><data:blog.searchLabel/><b:else/><b:if cond='data:blog.searchQuery'>نتائج البحث عن: <data:blog.searchQuery/><b:else/><b:if cond='data:blog.pageType == "archive"'>أرشيف المقالات<b:else/>أحدث المقالات</b:if></b:if></b:if></h1><b:if cond='data:blog.searchLabel'><p>تصفح المقالات المنشورة ضمن هذا التصنيف.</p></b:if></div>
+          <div class='ad-area' data-ad-label='مساحة إعلانية أعلى قائمة المقالات' aria-label='مساحة إعلانية أعلى قائمة المقالات'><b:section id='listing-ad-top' maxwidgets='1' showaddelement='yes'/></div>
+        </b:if>
+        <b:section id='main-posts' class='main' showaddelement='no'>
+          <b:widget id='Blog1' locked='true' title='المقالات' type='Blog' version='2' visible='true'>
+            <b:widget-settings>
+              <b:widget-setting name='showDateHeader'>false</b:widget-setting>
+              <b:widget-setting name='showShareButtons'>true</b:widget-setting>
+              <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+              <b:widget-setting name='showAuthor'>true</b:widget-setting>
+              <b:widget-setting name='showLabels'>true</b:widget-setting>
+              <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+              <b:widget-setting name='showReactions'>false</b:widget-setting>
+              <b:widget-setting name='showLocation'>false</b:widget-setting>
+              <b:widget-setting name='showPostLabels'>true</b:widget-setting>
+              <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+            </b:widget-settings>
+            <b:includable id='main' var='top'>
+              <b:loop values='data:posts' var='post'>
+                <b:if cond='data:blog.pageType == "item"'>
+                  <article class='post-outer article'>
+                    <h1><data:post.title/></h1>
+                    <div class='article-meta'><span>نُشر في <data:post.timestamp/></span><b:if cond='data:post.author'><span>بواسطة <data:post.author.name/></span></b:if></div>
+                    <div class='article-body'><data:post.body/></div>
+                    <div class='article-inline-ad' aria-label='مساحة إعلانية داخل المقال'><!-- مساحة اختيارية لكود الإعلان داخل المقال؛ تبقى مخفية حتى إضافة الكود --></div>
+                    <div class='article-labels'><b:loop values='data:post.labels' var='label'><a expr:href='data:label.url'><data:label.name/></a></b:loop></div>
+                  </article>
+                <b:else/>
+                  <article class='post-card'>
+                    <a class='post-thumb' expr:href='data:post.url'>
+                      <b:if cond='data:post.firstImageUrl'><img expr:src='data:post.firstImageUrl' expr:alt='data:post.title'/><b:else/>✦</b:if>
+                    </a>
+                    <div>
+                      <div class='label-line'><data:post.timestamp/></div>
+                      <h3><a expr:href='data:post.url'><data:post.title/></a></h3>
+                      <p><data:post.snippet/></p>
+                      <a class='label-line' expr:href='data:post.url'>اقرأ المزيد ←</a>
+                    </div>
+                  </article>
+                </b:if>
+              </b:loop>
+              <b:include name='nextprev'/>
+            </b:includable>
+            <b:includable id='nextprev'>
+              <div class='blog-pager'>
+                <b:if cond='data:newerPageUrl'><a expr:href='data:newerPageUrl'>← الأحدث</a></b:if>
+                <b:if cond='data:olderPageUrl'><a expr:href='data:olderPageUrl'>الأقدم →</a></b:if>
+              </div>
+            </b:includable>
+          </b:widget>
+        </b:section>
+        <b:if cond='data:blog.pageType == "item"'>
+          <div class='ad-area' data-ad-label='مساحة إعلانية بعد المقال' aria-label='مساحة إعلانية بعد المقال'><b:section id='article-ad-after' maxwidgets='1' showaddelement='yes'/></div>
+        <b:else/>
+          <div class='ad-area' data-ad-label='مساحة إعلانية أسفل قائمة المقالات' aria-label='مساحة إعلانية أسفل قائمة المقالات'><b:section id='listing-ad-bottom' maxwidgets='1' showaddelement='yes'/></div>
+        </b:if>
+      </section>
+      <aside class='sidebar'>
+        <div class='sidebar-box'><h3>تصفح الأقسام</h3>
+          <a href='/search/label/صحة'>❤️ الصحة</a><a href='/search/label/تعليم'>📚 التعليم</a><a href='/search/label/تقنية'>💻 التقنية</a><a href='/search/label/فن الطهي'>🍲 فن الطهي</a><a href='/search/label/حول العالم'>🌍 حول العالم</a><a href='/search/label/تغذية'>🥗 التغذية</a>
+        </div>
+        <div class='ad-area' data-ad-label='مساحة إعلانية جانبية' aria-label='مساحة إعلانية جانبية'><b:section id='sidebar-ad' maxwidgets='1' showaddelement='yes'/></div>
+        <b:section id='sidebar-widgets' showaddelement='yes'/>
+      </aside>
+    </div>
+  </main>
+  <div class='container ad-area' data-ad-label='مساحة إعلانية أسفل الصفحة' aria-label='مساحة إعلانية أسفل الصفحة'><b:section id='ad-bottom' maxwidgets='1' showaddelement='yes'/></div>
+  <footer class='footer'><div class='container'><div class='footer-grid'><div id='about'><h3>موضوع</h3><p>قالب مدونة عربي قابل للتخصيص، مستوحى من أسلوب بوابات المعرفة العربية. أضف وصف موقعك من إعدادات بلوجر.</p></div><div><h3>تصفح</h3><a href='/'>الرئيسية</a><a href='#categories'>التصنيفات</a><a href='/search'>البحث</a></div><div id='contact'><h3>روابط الموقع</h3><a href='/p/about.html'>من نحن</a><a href='/p/contact.html'>اتصل بنا</a><a href='/p/privacy.html'>سياسة الخصوصية</a></div></div><div class='copyright'>© <data:blog.title/> — جميع الحقوق محفوظة</div></div></footer>
+  <script type='text/javascript'>
+  //<![CDATA[
+  (function(){var nav=document.getElementById('mainnav');document.addEventListener('click',function(e){if(!e.target.closest('.navitem')&&!e.target.closest('.menu-toggle')){var items=document.querySelectorAll('.navitem.expanded');items.forEach(function(x){x.classList.remove('expanded');});}});})();
+  //]]>
+  </script>
+</body>
+</html>
