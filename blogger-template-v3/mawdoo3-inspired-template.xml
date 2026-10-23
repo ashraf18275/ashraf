@@ -192,7 +192,7 @@
       </b:section>
       <div class='hero-symbols'><a class='symbol' href='/search/label/فن الطهي'><span class='ico'>🍲</span><span>فن الطهي</span></a><a class='symbol' href='/search/label/صحة'><span class='ico'>❤️</span><span>الصحة</span></a><a class='symbol' href='/search/label/تعليم'><span class='ico'>📚</span><span>التعليم</span></a><a class='symbol' href='/search/label/حول العالم'><span class='ico'>🌍</span><span>حول العالم</span></a><a class='symbol' href='/search/label/تقنية'><span class='ico'>💻</span><span>التقنية</span></a><a class='symbol' href='/search/label/تغذية'><span class='ico'>🌿</span><span>التغذية</span></a></div>
     </div></div></section>
-    <b:section id='html2' class='editable-home-section' maxwidgets='1' showaddelement='no'>
+    <b:section id='trending-content' class='editable-home-section' maxwidgets='1' showaddelement='no'>
       <b:widget id='HTML2' locked='false' title='الموضوعات المتداولة' type='HTML' version='2' visible='true'>
         <b:widget-settings><b:widget-setting name='content'><![CDATA[<section class='section'><div class='container'><div class='section-head'><h2>متداول</h2><span class='muted'>موضوعات مختارة</span></div><div class='trending-grid'>
       <a class='trend-card' href='/search/label/الحياة والمجتمع'><span class='category'>الحياة والمجتمع</span><h3>موضوعات تهم حياتك اليومية</h3><span class='muted'>اقرأ المزيد ←</span></a>
@@ -203,7 +203,7 @@
         <b:includable id='main'><div class='widget-content'><data:content/></div></b:includable>
       </b:widget>
     </b:section>
-    <b:section id='html3' class='editable-home-section' maxwidgets='1' showaddelement='no'>
+    <b:section id='category-content' class='editable-home-section' maxwidgets='1' showaddelement='no'>
       <b:widget id='HTML3' locked='false' title='تصنيفات الصفحة الرئيسية' type='HTML' version='2' visible='true'>
         <b:widget-settings><b:widget-setting name='content'><![CDATA[<section class='section' id='categories'><div class='container'><div class='section-head'><h2>تصفح التصنيفات</h2><span class='muted'>تصفح حسب اهتمامك</span></div>
       <div class='category-grid'>
