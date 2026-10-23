@@ -178,10 +178,14 @@
       .brand{font-size:25px;gap:6px}
       .brand-mark{font-size:30px}
       .navinner{min-height:58px}
+      .mainnav{flex-direction:row;align-items:center}
       .menu-toggle{display:none}
       .mainnav{display:flex;flex-wrap:nowrap}
-      .mainnav .widget-content ul{flex-wrap:nowrap}
-      .hero{padding:24px 0}
+      .mainnav .widget-content ul{display:flex;flex-direction:row;align-items:center;flex-wrap:nowrap;gap:8px}
+      .mainnav .widget-content li{width:auto;flex:0 0 auto}
+      .mainnav .widget-content li a{white-space:nowrap}
+      .ad-area:has(.section:empty),.ad-area:has(> .section:not(:has(.widget))){display:none!important}
+      .hero{padding:14px 0 20px}
       .hero-box{grid-template-columns:1fr;padding:21px;gap:18px}
       .hero-art{min-height:100px;font-size:45px;grid-row:2}
       .hero-art span{font-size:48px}
